@@ -15,7 +15,7 @@ Spezifikationen
 
 Umsetzung 
 
-Es müssen objektorientierte Elemente verwendet werden und falls Anwendbar auch rekursive Funktionen. Die Benutzerschnittstelle erfolgt über eine GUI. 
+    Es müssen objektorientierte Elemente verwendet werden und falls Anwendbar auch rekursive Funktionen. Die Benutzerschnittstelle erfolgt über eine GUI. 
 
 Organisation 
 
