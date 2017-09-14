@@ -18,8 +18,6 @@ public class Gbo extends JFrame {
 
   // Anfang Attribute
   // private Parser parser;
-  public java.util.List<String> abreisszettel = new ArrayList<String>();
-
   private JList<String> lAbreisszettel = new JList<String>();
   private DefaultListModel<String> lAbreisszettelMODEL = new DefaultListModel<String>();
   private JScrollPane lAbreisszettelSCROLLPANE = new JScrollPane(lAbreisszettel);
@@ -46,10 +44,11 @@ public class Gbo extends JFrame {
   private JButton bCOS = new JButton();
   private JButton bTAN = new JButton();
   private JButton bGLEICH = new JButton();
-  private JButton jButton23 = new JButton();
-
-  private JButton jButton25 = new JButton();
-  private JButton jButton26 = new JButton();
+  private JButton bPRO = new JButton();
+  private JButton bFAK = new JButton();
+  private JButton bINTEG = new JButton();
+  private JButton bDEL = new JButton();
+  private JButton bAC = new JButton();
   // Ende Attribute
   
   public Gbo(/* Parser parser */) {
@@ -99,7 +98,7 @@ public class Gbo extends JFrame {
     });
     cp.add(tfEingabe);
     bNR0.setBounds(16, 168, 75, 25);
-    bNR0.setText("NR0");
+    bNR0.setText("0");
     bNR0.setMargin(new Insets(2, 2, 2, 2));
     bNR0.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
@@ -108,7 +107,7 @@ public class Gbo extends JFrame {
     });
     cp.add(bNR0);
     bNR1.setBounds(16, 128, 75, 25);
-    bNR1.setText("NR1");
+    bNR1.setText("1");
     bNR1.setMargin(new Insets(2, 2, 2, 2));
     bNR1.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
@@ -117,7 +116,7 @@ public class Gbo extends JFrame {
     });
     cp.add(bNR1);
     bNR4.setBounds(16, 96, 75, 25);
-    bNR4.setText("NR4");
+    bNR4.setText("4");
     bNR4.setMargin(new Insets(2, 2, 2, 2));
     bNR4.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
@@ -126,7 +125,7 @@ public class Gbo extends JFrame {
     });
     cp.add(bNR4);
     bNR7.setBounds(16, 64, 75, 25);
-    bNR7.setText("NR7");
+    bNR7.setText("7");
     bNR7.setMargin(new Insets(2, 2, 2, 2));
     bNR7.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
@@ -135,7 +134,7 @@ public class Gbo extends JFrame {
     });
     cp.add(bNR7);
     bKOMMA.setBounds(96, 168, 75, 25);
-    bKOMMA.setText("NR_KOMMA");
+    bKOMMA.setText(",");
     bKOMMA.setMargin(new Insets(2, 2, 2, 2));
     bKOMMA.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
@@ -144,7 +143,7 @@ public class Gbo extends JFrame {
     });
     cp.add(bKOMMA);
     bNR2.setBounds(96, 128, 75, 25);
-    bNR2.setText("NR2");
+    bNR2.setText("2");
     bNR2.setMargin(new Insets(2, 2, 2, 2));
     bNR2.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
@@ -153,7 +152,7 @@ public class Gbo extends JFrame {
     });
     cp.add(bNR2);
     bNR5.setBounds(96, 96, 75, 25);
-    bNR5.setText("NR5");
+    bNR5.setText("5");
     bNR5.setMargin(new Insets(2, 2, 2, 2));
     bNR5.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
@@ -162,7 +161,7 @@ public class Gbo extends JFrame {
     });
     cp.add(bNR5);
     bNR8.setBounds(96, 64, 75, 25);
-    bNR8.setText("NR8");
+    bNR8.setText("8");
     bNR8.setMargin(new Insets(2, 2, 2, 2));
     bNR8.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
@@ -171,7 +170,7 @@ public class Gbo extends JFrame {
     });
     cp.add(bNR8);
     b10HOCH.setBounds(176, 168, 75, 25);
-    b10HOCH.setText("NR_10HOCH");
+    b10HOCH.setText("*10^");
     b10HOCH.setMargin(new Insets(2, 2, 2, 2));
     b10HOCH.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
@@ -180,7 +179,7 @@ public class Gbo extends JFrame {
     });
     cp.add(b10HOCH);
     bNR3.setBounds(176, 128, 75, 25);
-    bNR3.setText("NR3");
+    bNR3.setText("3");
     bNR3.setMargin(new Insets(2, 2, 2, 2));
     bNR3.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
@@ -189,7 +188,7 @@ public class Gbo extends JFrame {
     });
     cp.add(bNR3);
     bNR6.setBounds(176, 96, 75, 25);
-    bNR6.setText("NR6");
+    bNR6.setText("6");
     bNR6.setMargin(new Insets(2, 2, 2, 2));
     bNR6.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
@@ -198,7 +197,7 @@ public class Gbo extends JFrame {
     });
     cp.add(bNR6);
     bNR9.setBounds(176, 64, 75, 25);
-    bNR9.setText("NR9");
+    bNR9.setText("9");
     bNR9.setMargin(new Insets(2, 2, 2, 2));
     bNR9.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
@@ -225,7 +224,7 @@ public class Gbo extends JFrame {
     });
     cp.add(bKLAMMERZU);
     bPLUS.setBounds(256, 168, 75, 25);
-    bPLUS.setText("PLUS");
+    bPLUS.setText("+");
     bPLUS.setMargin(new Insets(2, 2, 2, 2));
     bPLUS.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
@@ -234,7 +233,7 @@ public class Gbo extends JFrame {
     });
     cp.add(bPLUS);
     bMAL.setBounds(256, 136, 75, 25);
-    bMAL.setText("MAL");
+    bMAL.setText("*");
     bMAL.setMargin(new Insets(2, 2, 2, 2));
     bMAL.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
@@ -243,7 +242,7 @@ public class Gbo extends JFrame {
     });
     cp.add(bMAL);
     bMINUS.setBounds(336, 168, 75, 25);
-    bMINUS.setText("MINUS");
+    bMINUS.setText("-");
     bMINUS.setMargin(new Insets(2, 2, 2, 2));
     bMINUS.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
@@ -252,7 +251,7 @@ public class Gbo extends JFrame {
     });
     cp.add(bMINUS);
     bGETEILT.setBounds(336, 136, 75, 25);
-    bGETEILT.setText("GETEILT");
+    bGETEILT.setText("/");
     bGETEILT.setMargin(new Insets(2, 2, 2, 2));
     bGETEILT.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
@@ -296,63 +295,90 @@ public class Gbo extends JFrame {
       }
     });
     cp.add(bGLEICH);
-    jButton23.setBounds(376, 40, 75, 25);
-    jButton23.setText("jButton23");
-    jButton23.setMargin(new Insets(2, 2, 2, 2));
-    jButton23.addActionListener(new ActionListener() {
+    bPRO.setBounds(376, 40, 75, 25);
+    bPRO.setText("PRODUKT");
+    bPRO.setMargin(new Insets(2, 2, 2, 2));
+    bPRO.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
-        jButton23_ActionPerformed(evt);
+        bPRO_ActionPerformed(evt);
       }
     });
-    cp.add(jButton23);
+    cp.add(bPRO);
     
-    jButton25.setBounds(376, 72, 75, 25);
-    jButton25.setText("jButton25");
-    jButton25.setMargin(new Insets(2, 2, 2, 2));
-    jButton25.addActionListener(new ActionListener() {
+    bINTEG.setBounds(376, 72, 75, 25);
+    bINTEG.setText("INTEG");
+    bINTEG.setMargin(new Insets(2, 2, 2, 2));
+    bINTEG.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
-        jButton25_ActionPerformed(evt);
+        bINTEG_ActionPerformed(evt);
       }
     });
-    cp.add(jButton25);
-    jButton26.setBounds(376, 104, 75, 25);
-    jButton26.setText("jButton26");
-    jButton26.setMargin(new Insets(2, 2, 2, 2));
-    jButton26.addActionListener(new ActionListener() {
+    cp.add(bINTEG);
+    bFAK.setBounds(376, 104, 75, 25);
+    bFAK.setText("FAK");
+    bFAK.setMargin(new Insets(2, 2, 2, 2));
+    bFAK.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
-        jButton26_ActionPerformed(evt);
+        bFAK_ActionPerformed(evt);
       }
     });
-    cp.add(jButton26);
+    cp.add(bFAK);
+    bDEL.setBounds(440, 136, 75, 25);
+    bDEL.setText("bDEL");
+    bDEL.setMargin(new Insets(2, 2, 2, 2));
+    bDEL.addActionListener(new ActionListener() { 
+      public void actionPerformed(ActionEvent evt) { 
+        bDEL_ActionPerformed(evt);
+      }
+    });
+    cp.add(bDEL);
+    bAC.setBounds(440, 168, 75, 25);
+    bAC.setText("bAC");
+    bAC.setMargin(new Insets(2, 2, 2, 2));
+    bAC.addActionListener(new ActionListener() { 
+      public void actionPerformed(ActionEvent evt) { 
+        bAC_ActionPerformed(evt);
+      }
+    });
+    cp.add(bAC);
     // Ende Komponenten
     
     setVisible(true);
   } // end of public Gbo
   
   // Anfang Methoden
-  
-  public void jButton25_ActionPerformed(ActionEvent evt) {
-    this.eingabeAdd("bu(");
+  public void bDEL_ActionPerformed(ActionEvent evt) {
+    this.eingabeRemove();
   }
   
-  public void jButton26_ActionPerformed(ActionEvent evt) {
-    this.eingabeAdd("bu");
+  public void bAC_ActionPerformed(ActionEvent evt) {
+    while(!tfEingabe.getText().isEmpty()){
+      this.eingabeRemove();
+    }
   }
   
-  public void jButton23_ActionPerformed(ActionEvent evt) {
-    this.eingabeAdd("bu");
+  public void bPRO_ActionPerformed(ActionEvent evt) {
+    this.eingabeAdd("pro(");
+  }
+  
+  public void bINTEG_ActionPerformed(ActionEvent evt) {
+    this.eingabeAdd("int(");
+  }
+  
+  public void bFAK_ActionPerformed(ActionEvent evt) {
+    this.eingabeAdd("fak(");
   }
   
   public void bTAN_ActionPerformed(ActionEvent evt) {
-    this.eingabeAdd("TAN(");
+    this.eingabeAdd("tan(");
   }
   
   public void bCOS_ActionPerformed(ActionEvent evt) {
-    this.eingabeAdd("aCOSINUS(");
+    this.eingabeAdd("cos(");
   }
   
   public void bSIN_ActionPerformed(ActionEvent evt) {
-    this.eingabeAdd("SINUS(");
+    this.eingabeAdd("sin(");
   }
   
   public void bGETEILT_ActionPerformed(ActionEvent evt) {
@@ -430,40 +456,80 @@ public class Gbo extends JFrame {
   public void bNR9_ActionPerformed(ActionEvent evt) {
     this.eingabeAdd("9");
   }
+  
   // Ende Methoden
   
   // ############################Meine Methoden
   private void rechne() {
+    eingabeAdd("");      
     String eingabe = tfEingabe.getText();
-    // String ergebnis = parser.verarbeite(eingabe);
-    tfEingabe.setText(eingabe + " = " /* + ergebnis */);
-    lAbreisszettelMODEL.addElement(eingabe + " = " /* + ergebnis */);
+    if(!eingabe.isEmpty()){ 
+      // String ergebnis = parser.verarbeite(eingabe);
+      tfEingabe.setText(eingabe + "=" /* + ergebnis */);
+      lAbreisszettelMODEL.addElement(eingabe + " = " /* + ergebnis */);
+    }
   }
   
   private void eingabeAdd(String element) {
-    tfEingabe.setText(tfEingabe.getText() + element);
+    String text = tfEingabe.getText(); 
+    if(text.contains("=")){
+      int point = text.indexOf('=');
+      text = text.substring(0,point);
+    }
+    tfEingabe.setText(text + element);
   }
   
   private void eingabeRemove() {
     String text = tfEingabe.getText();
-    if(!text.isEmpty())
-    tfEingabe.setText(text.substring(0,text.length()- 1));
+    if(!text.isEmpty()) {
+      tfEingabe.setText(text.substring(0,text.length()- 1));
+      text = tfEingabe.getText();
+      if(text.endsWith("sin")||text.endsWith("cos")||text.endsWith("tan")||text.endsWith("fak")||text.endsWith("int")||text.endsWith("pro")){
+        tfEingabe.setText(text.substring(0,text.length()- 3));
+      }
+    }
   }
-  
+    
   private void tastaturCheck(KeyEvent e) {
-    System.out.println("key:"+ e.getKeyCode());
-    String key = e.getKeyChar()+"";
-    char[] goodKey = {'1','2','3','4','5','6','7','8','9','0','+','-','*','/','.','^'};
+    int keyCode = e.getKeyCode();
+    String key = e.getKeyChar()+""; 
+    System.out.println("key:"+ key +keyCode);
+    char[] goodKey = {'1','2','3','4','5','6','7','8','9','0','+','-','*','/','.','^','(',')'};
     for (int i = 0;i<goodKey.length ;i++ ) {
       if(key.charAt(0)== goodKey[i]){
         eingabeAdd(goodKey[i]+"");
       }  
     } 
-     if(e.getKeyCode()==KeyEvent.VK_BACK_SPACE)  {
+    if(key.charAt(0) == 127/*DEL*/)  {
       eingabeRemove();
     }
+    else if(key.charAt(0) == '\n')  {
+      rechne();
+    }
+    else if(key.charAt(0) == 's')  {
+      eingabeAdd("sin(");
+    }
+    else if(key.charAt(0) == 'c')  {
+      eingabeAdd("cos(");
+    }
+    else if(key.charAt(0) == 't')  {
+      eingabeAdd("tan(");
+    }
+    else if(key.charAt(0) == 'p')  {
+      eingabeAdd("pro(");
+    }
+    else if(key.charAt(0) == '!')  {
+      eingabeAdd("fak(");
+    }
+    else if(key.charAt(0) == 'f')  {
+      eingabeAdd("fak(");
+    }
+    else if(key.charAt(0) == 'i')  {
+      eingabeAdd("int(");
+    }
   }
-  
+    
+    
   public static void main(String[] args) {
     try {
       UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -472,5 +538,5 @@ public class Gbo extends JFrame {
     }
     new Gbo();
   } // end of main
-  
+    
 } // end of class Gbo
