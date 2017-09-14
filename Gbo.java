@@ -2,6 +2,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
+import java.util.*;
 
 /**
   *
@@ -14,41 +15,55 @@ import javax.swing.event.*;
 public class Gbo extends JFrame {
   // Anfang Attribute
   //private Parser parser;
+  public java.util.List<String> abreisszettel = new ArrayList<String>();
+  
+  
+  
   private JList jList1 = new JList();
     private DefaultListModel jList1Model = new DefaultListModel();
     private JScrollPane jList1ScrollPane = new JScrollPane(jList1);
   private JTextField jTextField1 = new JTextField();
-  private JButton jButton1 = new JButton();
-  private JButton jButton2 = new JButton();
-  private JButton jButton3 = new JButton();
-  private JButton jButton4 = new JButton();
-  private JButton jButton5 = new JButton();
-  private JButton jButton6 = new JButton();
-  private JButton jButton7 = new JButton();
-  private JButton jButton8 = new JButton();
-  private JButton jButton9 = new JButton();
-  private JButton jButton10 = new JButton();
-  private JButton jButton11 = new JButton();
-  private JButton jButton12 = new JButton();
-  private JButton jButton13 = new JButton();
-  private JButton jButton14 = new JButton();
-  private JButton jButton15 = new JButton();
-  private JButton jButton16 = new JButton();
-  private JButton jButton17 = new JButton();
-  private JButton jButton18 = new JButton();
-  private JButton jButton19 = new JButton();
-  private JButton jButton20 = new JButton();
-  private JButton jButton21 = new JButton();
-  private JButton jButton22 = new JButton();
+  private JButton bNR0 = new JButton();
+  private JButton bNR1 = new JButton();
+  private JButton bNR4 = new JButton();
+  private JButton bNR7 = new JButton();
+  private JButton bKOMMA = new JButton();
+  private JButton bNR2 = new JButton();
+  private JButton bNR5 = new JButton();
+  private JButton bNR8 = new JButton();
+  private JButton b10HOCH = new JButton();
+  private JButton bNR3 = new JButton();
+  private JButton bNR6 = new JButton();
+  private JButton bNR9 = new JButton();
+  private JButton bKLAMMERAUF = new JButton();
+  private JButton bKLAMMERZU = new JButton();
+  private JButton bPLUS = new JButton();
+  private JButton bMAL = new JButton();
+  private JButton bMINUS = new JButton();
+  private JButton bGETEILT = new JButton();
+  private JButton bSIN = new JButton();
+  private JButton bCOS = new JButton();
+  private JButton bTAN = new JButton();
+  private JButton bGLEICH = new JButton();
+  private JButton jButton23 = new JButton();
+  
+  private JButton jButton25 = new JButton();
+  private JButton jButton26 = new JButton();
   // Ende Attribute
   
   public Gbo(/*Parser parser*/) { 
     // Frame-Initialisierung
     super("Mathematischer Taschenrechner");
     //this.parser = parser;
+    jList1Model.addElement("ABRISSZETTEL:");
+    
+    
+    
+    
+    
     setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     int frameWidth = 768; 
-    int frameHeight = 300;
+    int frameHeight = 289;
     setSize(frameWidth, frameHeight);
     Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
     int x = (d.width - getSize().width) / 2;
@@ -65,301 +80,353 @@ public class Gbo extends JFrame {
     jTextField1.setBounds(16, 208, 382, 28);
     jTextField1.setEditable(false);
     cp.add(jTextField1);
-    jButton1.setBounds(16, 168, 75, 25);
-    jButton1.setText("jButton1");
-    jButton1.setMargin(new Insets(2, 2, 2, 2));
-    jButton1.addActionListener(new ActionListener() { 
+    bNR0.setBounds(16, 168, 75, 25);
+    bNR0.setText("NR0");
+    bNR0.setMargin(new Insets(2, 2, 2, 2));
+    bNR0.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent evt) { 
-        jButton1_ActionPerformed(evt);
+        bNR0_ActionPerformed(evt);
       }
     });
-    cp.add(jButton1);
-    jButton2.setBounds(16, 128, 75, 25);
-    jButton2.setText("jButton2");
-    jButton2.setMargin(new Insets(2, 2, 2, 2));
-    jButton2.addActionListener(new ActionListener() { 
+    cp.add(bNR0);
+    bNR1.setBounds(16, 128, 75, 25);
+    bNR1.setText("NR1");
+    bNR1.setMargin(new Insets(2, 2, 2, 2));
+    bNR1.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent evt) { 
-        jButton2_ActionPerformed(evt);
+        bNR1_ActionPerformed(evt);
       }
     });
-    cp.add(jButton2);
-    jButton3.setBounds(16, 96, 75, 25);
-    jButton3.setText("jButton3");
-    jButton3.setMargin(new Insets(2, 2, 2, 2));
-    jButton3.addActionListener(new ActionListener() { 
+    cp.add(bNR1);
+    bNR4.setBounds(16, 96, 75, 25);
+    bNR4.setText("NR4");
+    bNR4.setMargin(new Insets(2, 2, 2, 2));
+    bNR4.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent evt) { 
-        jButton3_ActionPerformed(evt);
+        bNR4_ActionPerformed(evt);
       }
     });
-    cp.add(jButton3);
-    jButton4.setBounds(16, 64, 75, 25);
-    jButton4.setText("jButton4");
-    jButton4.setMargin(new Insets(2, 2, 2, 2));
-    jButton4.addActionListener(new ActionListener() { 
+    cp.add(bNR4);
+    bNR7.setBounds(16, 64, 75, 25);
+    bNR7.setText("NR7");
+    bNR7.setMargin(new Insets(2, 2, 2, 2));
+    bNR7.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent evt) { 
-        jButton4_ActionPerformed(evt);
+        bNR7_ActionPerformed(evt);
       }
     });
-    cp.add(jButton4);
-    jButton5.setBounds(96, 168, 75, 25);
-    jButton5.setText("jButton5");
-    jButton5.setMargin(new Insets(2, 2, 2, 2));
-    jButton5.addActionListener(new ActionListener() { 
+    cp.add(bNR7);
+    bKOMMA.setBounds(96, 168, 75, 25);
+    bKOMMA.setText("NR_KOMMA");
+    bKOMMA.setMargin(new Insets(2, 2, 2, 2));
+    bKOMMA.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent evt) { 
-        jButton5_ActionPerformed(evt);
+        bKOMMA_ActionPerformed(evt);
       }
     });
-    cp.add(jButton5);
-    jButton6.setBounds(96, 128, 75, 25);
-    jButton6.setText("jButton6");
-    jButton6.setMargin(new Insets(2, 2, 2, 2));
-    jButton6.addActionListener(new ActionListener() { 
+    cp.add(bKOMMA);
+    bNR2.setBounds(96, 128, 75, 25);
+    bNR2.setText("NR2");
+    bNR2.setMargin(new Insets(2, 2, 2, 2));
+    bNR2.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent evt) { 
-        jButton6_ActionPerformed(evt);
+        bNR2_ActionPerformed(evt);
       }
     });
-    cp.add(jButton6);
-    jButton7.setBounds(96, 96, 75, 25);
-    jButton7.setText("jButton7");
-    jButton7.setMargin(new Insets(2, 2, 2, 2));
-    jButton7.addActionListener(new ActionListener() { 
+    cp.add(bNR2);
+    bNR5.setBounds(96, 96, 75, 25);
+    bNR5.setText("NR5");
+    bNR5.setMargin(new Insets(2, 2, 2, 2));
+    bNR5.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent evt) { 
-        jButton7_ActionPerformed(evt);
+        bNR5_ActionPerformed(evt);
       }
     });
-    cp.add(jButton7);
-    jButton8.setBounds(96, 64, 75, 25);
-    jButton8.setText("jButton8");
-    jButton8.setMargin(new Insets(2, 2, 2, 2));
-    jButton8.addActionListener(new ActionListener() { 
+    cp.add(bNR5);
+    bNR8.setBounds(96, 64, 75, 25);
+    bNR8.setText("NR8");
+    bNR8.setMargin(new Insets(2, 2, 2, 2));
+    bNR8.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent evt) { 
-        jButton8_ActionPerformed(evt);
+        bNR8_ActionPerformed(evt);
       }
     });
-    cp.add(jButton8);
-    jButton9.setBounds(176, 168, 75, 25);
-    jButton9.setText("jButton9");
-    jButton9.setMargin(new Insets(2, 2, 2, 2));
-    jButton9.addActionListener(new ActionListener() { 
+    cp.add(bNR8);
+    b10HOCH.setBounds(176, 168, 75, 25);
+    b10HOCH.setText("NR_10HOCH");
+    b10HOCH.setMargin(new Insets(2, 2, 2, 2));
+    b10HOCH.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent evt) { 
-        jButton9_ActionPerformed(evt);
+        b10HOCH_ActionPerformed(evt);
       }
     });
-    cp.add(jButton9);
-    jButton10.setBounds(176, 128, 75, 25);
-    jButton10.setText("jButton10");
-    jButton10.setMargin(new Insets(2, 2, 2, 2));
-    jButton10.addActionListener(new ActionListener() { 
+    cp.add(b10HOCH);
+    bNR3.setBounds(176, 128, 75, 25);
+    bNR3.setText("NR3");
+    bNR3.setMargin(new Insets(2, 2, 2, 2));
+    bNR3.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent evt) { 
-        jButton10_ActionPerformed(evt);
+        bNR3_ActionPerformed(evt);
       }
     });
-    cp.add(jButton10);
-    jButton11.setBounds(176, 96, 75, 25);
-    jButton11.setText("jButton11");
-    jButton11.setMargin(new Insets(2, 2, 2, 2));
-    jButton11.addActionListener(new ActionListener() { 
+    cp.add(bNR3);
+    bNR6.setBounds(176, 96, 75, 25);
+    bNR6.setText("NR6");
+    bNR6.setMargin(new Insets(2, 2, 2, 2));
+    bNR6.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent evt) { 
-        jButton11_ActionPerformed(evt);
+        bNR6_ActionPerformed(evt);
       }
     });
-    cp.add(jButton11);
-    jButton12.setBounds(176, 64, 75, 25);
-    jButton12.setText("jButton12");
-    jButton12.setMargin(new Insets(2, 2, 2, 2));
-    jButton12.addActionListener(new ActionListener() { 
+    cp.add(bNR6);
+    bNR9.setBounds(176, 64, 75, 25);
+    bNR9.setText("NR9");
+    bNR9.setMargin(new Insets(2, 2, 2, 2));
+    bNR9.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent evt) { 
-        jButton12_ActionPerformed(evt);
+        bNR9_ActionPerformed(evt);
       }
     });
-    cp.add(jButton12);
-    jButton13.setBounds(96, 24, 75, 25);
-    jButton13.setText("jButton13");
-    jButton13.setMargin(new Insets(2, 2, 2, 2));
-    jButton13.addActionListener(new ActionListener() { 
+    cp.add(bNR9);
+    bKLAMMERAUF.setBounds(96, 24, 75, 25);
+    bKLAMMERAUF.setText("(");
+    bKLAMMERAUF.setMargin(new Insets(2, 2, 2, 2));
+    bKLAMMERAUF.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent evt) { 
-        jButton13_ActionPerformed(evt);
+        bKLAMMERAUF_ActionPerformed(evt);
       }
     });
-    cp.add(jButton13);
-    jButton14.setBounds(176, 24, 75, 25);
-    jButton14.setText("jButton14");
-    jButton14.setMargin(new Insets(2, 2, 2, 2));
-    jButton14.addActionListener(new ActionListener() { 
+    cp.add(bKLAMMERAUF);
+    bKLAMMERZU.setBounds(176, 24, 75, 25);
+    bKLAMMERZU.setText(")");
+    bKLAMMERZU.setMargin(new Insets(2, 2, 2, 2));
+    bKLAMMERZU.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent evt) { 
-        jButton14_ActionPerformed(evt);
+        bKLAMMERZU_ActionPerformed(evt);
       }
     });
-    cp.add(jButton14);
-    jButton15.setBounds(256, 168, 75, 25);
-    jButton15.setText("jButton15");
-    jButton15.setMargin(new Insets(2, 2, 2, 2));
-    jButton15.addActionListener(new ActionListener() { 
+    cp.add(bKLAMMERZU);
+    bPLUS.setBounds(256, 168, 75, 25);
+    bPLUS.setText("PLUS");
+    bPLUS.setMargin(new Insets(2, 2, 2, 2));
+    bPLUS.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent evt) { 
-        jButton15_ActionPerformed(evt);
+        bPLUS_ActionPerformed(evt);
       }
     });
-    cp.add(jButton15);
-    jButton16.setBounds(256, 136, 75, 25);
-    jButton16.setText("jButton16");
-    jButton16.setMargin(new Insets(2, 2, 2, 2));
-    jButton16.addActionListener(new ActionListener() { 
+    cp.add(bPLUS);
+    bMAL.setBounds(256, 136, 75, 25);
+    bMAL.setText("MAL");
+    bMAL.setMargin(new Insets(2, 2, 2, 2));
+    bMAL.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent evt) { 
-        jButton16_ActionPerformed(evt);
+        bMAL_ActionPerformed(evt);
       }
     });
-    cp.add(jButton16);
-    jButton17.setBounds(336, 168, 75, 25);
-    jButton17.setText("jButton17");
-    jButton17.setMargin(new Insets(2, 2, 2, 2));
-    jButton17.addActionListener(new ActionListener() { 
+    cp.add(bMAL);
+    bMINUS.setBounds(336, 168, 75, 25);
+    bMINUS.setText("MINUS");
+    bMINUS.setMargin(new Insets(2, 2, 2, 2));
+    bMINUS.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent evt) { 
-        jButton17_ActionPerformed(evt);
+        bMINUS_ActionPerformed(evt);
       }
     });
-    cp.add(jButton17);
-    jButton18.setBounds(336, 136, 75, 25);
-    jButton18.setText("jButton18");
-    jButton18.setMargin(new Insets(2, 2, 2, 2));
-    jButton18.addActionListener(new ActionListener() { 
+    cp.add(bMINUS);
+    bGETEILT.setBounds(336, 136, 75, 25);
+    bGETEILT.setText("GETEILT");
+    bGETEILT.setMargin(new Insets(2, 2, 2, 2));
+    bGETEILT.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent evt) { 
-        jButton18_ActionPerformed(evt);
+        bGETEILT_ActionPerformed(evt);
       }
     });
-    cp.add(jButton18);
-    jButton19.setBounds(296, 104, 75, 25);
-    jButton19.setText("jButton19");
-    jButton19.setMargin(new Insets(2, 2, 2, 2));
-    jButton19.addActionListener(new ActionListener() { 
+    cp.add(bGETEILT);
+    bSIN.setBounds(296, 104, 75, 25);
+    bSIN.setText("SIN");
+    bSIN.setMargin(new Insets(2, 2, 2, 2));
+    bSIN.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent evt) { 
-        jButton19_ActionPerformed(evt);
+        bSIN_ActionPerformed(evt);
       }
     });
-    cp.add(jButton19);
-    jButton20.setBounds(296, 72, 75, 25);
-    jButton20.setText("jButton20");
-    jButton20.setMargin(new Insets(2, 2, 2, 2));
-    jButton20.addActionListener(new ActionListener() { 
+    cp.add(bSIN);
+    bCOS.setBounds(296, 72, 75, 25);
+    bCOS.setText("COS");
+    bCOS.setMargin(new Insets(2, 2, 2, 2));
+    bCOS.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent evt) { 
-        jButton20_ActionPerformed(evt);
+        bCOS_ActionPerformed(evt);
       }
     });
-    cp.add(jButton20);
-    jButton21.setBounds(296, 40, 75, 25);
-    jButton21.setText("jButton21");
-    jButton21.setMargin(new Insets(2, 2, 2, 2));
-    jButton21.addActionListener(new ActionListener() { 
+    cp.add(bCOS);
+    bTAN.setBounds(296, 40, 75, 25);
+    bTAN.setText("TAN");
+    bTAN.setMargin(new Insets(2, 2, 2, 2));
+    bTAN.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent evt) { 
-        jButton21_ActionPerformed(evt);
+        bTAN_ActionPerformed(evt);
       }
     });
-    cp.add(jButton21);
-    jButton22.setBounds(408, 208, 75, 25);
-    jButton22.setText("jButton22");
-    jButton22.setMargin(new Insets(2, 2, 2, 2));
-    jButton22.addActionListener(new ActionListener() { 
+    cp.add(bTAN);
+    bGLEICH.setBounds(408, 208, 75, 25);
+    bGLEICH.setText("=");
+    bGLEICH.setMargin(new Insets(2, 2, 2, 2));
+    bGLEICH.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent evt) { 
-        jButton22_ActionPerformed(evt);
+        bGLEICH_ActionPerformed(evt);
       }
     });
-    cp.add(jButton22);
+    cp.add(bGLEICH);
+    jButton23.setBounds(376, 40, 75, 25);
+    jButton23.setText("jButton23");
+    jButton23.setMargin(new Insets(2, 2, 2, 2));
+    jButton23.addActionListener(new ActionListener() { 
+      public void actionPerformed(ActionEvent evt) { 
+        jButton23_ActionPerformed(evt);
+      }
+    });
+    cp.add(jButton23);
+    
+    jButton25.setBounds(376, 72, 75, 25);
+    jButton25.setText("jButton25");
+    jButton25.setMargin(new Insets(2, 2, 2, 2));
+    jButton25.addActionListener(new ActionListener() { 
+      public void actionPerformed(ActionEvent evt) { 
+        jButton25_ActionPerformed(evt);
+      }
+    });
+    cp.add(jButton25);
+    jButton26.setBounds(376, 104, 75, 25);
+    jButton26.setText("jButton26");
+    jButton26.setMargin(new Insets(2, 2, 2, 2));
+    jButton26.addActionListener(new ActionListener() { 
+      public void actionPerformed(ActionEvent evt) { 
+        jButton26_ActionPerformed(evt);
+      }
+    });
+    cp.add(jButton26);
     // Ende Komponenten
     
     setVisible(true);
   } // end of public Gbo
   
   // Anfang Methoden
-  public void jButton1_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
-  } // end of jButton1_ActionPerformed
   
-  public void jButton2_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
-  } // end of jButton2_ActionPerformed
   
-  public void jButton3_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
-  } // end of jButton3_ActionPerformed
+  public void jButton25_ActionPerformed(ActionEvent evt) {
+    this.eingabeAdd("bu(");
+  }
   
-  public void jButton4_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
-  } // end of jButton4_ActionPerformed
+  public void jButton26_ActionPerformed(ActionEvent evt) {
+    this.eingabeAdd("bu");
+  }
   
-  public void jButton5_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
-  } // end of jButton5_ActionPerformed
+  public void jButton23_ActionPerformed(ActionEvent evt) {
+    this.eingabeAdd("bu");
+  }
   
-  public void jButton6_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
-  } // end of jButton6_ActionPerformed
+  public void bTAN_ActionPerformed(ActionEvent evt) {
+    this.eingabeAdd("TAN(");
+  }
   
-  public void jButton7_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
-  } // end of jButton7_ActionPerformed
+  public void bCOS_ActionPerformed(ActionEvent evt) {
+    this.eingabeAdd("aCOSINUS(");
+  }
   
-  public void jButton8_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
-  } // end of jButton8_ActionPerformed
+  public void bSIN_ActionPerformed(ActionEvent evt) {
+    this.eingabeAdd("SINUS(");
+  }
   
-  public void jButton9_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
-  } // end of jButton9_ActionPerformed
+  public void bGETEILT_ActionPerformed(ActionEvent evt) {
+    this.eingabeAdd("/");
+  }
   
-  public void jButton10_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
-  } // end of jButton10_ActionPerformed
+  public void bMAL_ActionPerformed(ActionEvent evt) {
+    this.eingabeAdd("*");
+  }
   
-  public void jButton11_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
-  } // end of jButton11_ActionPerformed
+  public void bMINUS_ActionPerformed(ActionEvent evt) {
+    this.eingabeAdd("-");
+  }
   
-  public void jButton12_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
-  } // end of jButton12_ActionPerformed
+  public void bPLUS_ActionPerformed(ActionEvent evt) {
+    this.eingabeAdd("+");
+  }
   
-  public void jButton13_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
-  } // end of jButton13_ActionPerformed
+  public void b10HOCH_ActionPerformed(ActionEvent evt) {
+    this.eingabeAdd("*10^");
+  }
   
-  public void jButton14_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
-  } // end of jButton14_ActionPerformed
+  public void bKLAMMERAUF_ActionPerformed(ActionEvent evt) {
+    this.eingabeAdd("(");
+  }
   
-  public void jButton15_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
-  } // end of jButton15_ActionPerformed
+  public void bKLAMMERZU_ActionPerformed(ActionEvent evt) {
+    this.eingabeAdd(")");
+  }
   
-  public void jButton16_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
-  } // end of jButton16_ActionPerformed
+  public void bKOMMA_ActionPerformed(ActionEvent evt) {
+    this.eingabeAdd(".");
+  }
   
-  public void jButton17_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
-  } // end of jButton17_ActionPerformed
+  public void bGLEICH_ActionPerformed(ActionEvent evt) {
+    rechne();
+  }
   
-  public void jButton18_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
-  } // end of jButton18_ActionPerformed
-  
-  public void jButton19_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
-  } // end of jButton19_ActionPerformed
-  
-  public void jButton20_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
-  } // end of jButton20_ActionPerformed
-  
-  public void jButton21_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
-  } // end of jButton21_ActionPerformed
-  
-  public void jButton22_ActionPerformed(ActionEvent evt) {
-    /*String eingabe = jTextField1.getText();
-    String ergebnis = parser.verarbeite(eingabe);
-    */
+  public void bNR0_ActionPerformed(ActionEvent evt) {
+    this.eingabeAdd("0");
   } 
   
+  public void bNR1_ActionPerformed(ActionEvent evt) {
+    this.eingabeAdd("1");
+  } 
+  
+  public void bNR2_ActionPerformed(ActionEvent evt) {
+    this.eingabeAdd("2");
+  } 
+  
+  public void bNR3_ActionPerformed(ActionEvent evt) {
+    this.eingabeAdd("3");
+  }
+  
+  public void bNR4_ActionPerformed(ActionEvent evt) {
+    this.eingabeAdd("4");
+  } 
+  
+  public void bNR5_ActionPerformed(ActionEvent evt) {
+    this.eingabeAdd("5");
+  } 
+  
+  public void bNR6_ActionPerformed(ActionEvent evt) {
+    this.eingabeAdd("6");
+  }
+  
+  public void bNR7_ActionPerformed(ActionEvent evt) {
+    this.eingabeAdd("7");
+  } 
+  
+  public void bNR8_ActionPerformed(ActionEvent evt) {
+    this.eingabeAdd("8");
+  } 
+  
+  public void bNR9_ActionPerformed(ActionEvent evt) {
+    this.eingabeAdd("9");
+  } 
   // Ende Methoden
+  
+  //############################Meine Methoden
+  private void rechne(){
+    String eingabe = jTextField1.getText();
+    //String ergebnis = parser.verarbeite(eingabe);
+    jTextField1.setText(eingabe+" = " /*+ ergebnis*/);
+    jList1Model.addElement(eingabe+" = " /*+ ergebnis*/);
+  }
+  private void eingabeAdd(String element){
+    jTextField1.setText(jTextField1.getText()+element);
+  }
+  
+  
   
   public static void main(String[] args) {
     try {
