@@ -485,11 +485,17 @@ public class Gbo extends JFrame {
 	}
 
 	private void fINTEGRAL() {
-		eingabeAdd("int" + customDialog("Integral(von; bis; f(x))"));
+		String text = customDialog("Integral(von; bis; f(x))");
+		if (!text.isEmpty()) {
+			eingabeAdd("int" + text);
+		}
 	}
 
 	private void fPRODUKT() {
-		eingabeAdd("pro" + customDialog("Produkt(von; bis; f(x))"));
+		String text = customDialog("Produkt(von; bis; f(x))");
+		if (!text.isEmpty()) {
+			eingabeAdd("pro" + text);
+		}
 	}
 
 	private String customDialog(String title) {
@@ -523,23 +529,25 @@ public class Gbo extends JFrame {
 		d.add(tfFUNKTION);
 		d.add(bOK);
 		d.setSize(300, 100);
+		d.setLocation(this.getLocation());
 		d.setVisible(true);
 		if (checkDialog(tfVON.getText()) && checkDialog(tfBIS.getText()) && checkDialog(tfFUNKTION.getText())) {
 			d.dispose();
 			return "[" + tfVON.getText() + ";" + tfBIS.getText() + ";" + tfFUNKTION.getText() + "]";
-		}else {
-			return customDialog(title);
+		} else {
+			return "";
 		}
 	}
 
 	private boolean checkDialog(String text) {
 		text.trim();
-		if(text.isEmpty()) {
+		if (text.isEmpty()) {
 			return false;
 		}
 		char[] chars = text.toCharArray();
-		char[] goodKey = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', '*', '/', '.', '(', ')', 'x','X' };
-		
+		char[] goodKey = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', '*', '/', '.', '(', ')', 'x',
+				'X' };
+
 		for (int i = 0; i < chars.length; i++) {
 			boolean ok = false;
 			for (int j = 0; j < goodKey.length; j++) {
@@ -566,6 +574,9 @@ public class Gbo extends JFrame {
 	private void eingabeRemove() {
 		String text = tfEingabe.getText();
 		if (!text.isEmpty()) {
+			if (text.endsWith("]")) {
+				text = text.substring(0, text.lastIndexOf('[') + 1);
+			}
 			tfEingabe.setText(text.substring(0, text.length() - 1));
 			text = tfEingabe.getText();
 			if (text.endsWith("sin") || text.endsWith("cos") || text.endsWith("tan") || text.endsWith("fak")
