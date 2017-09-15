@@ -1,7 +1,23 @@
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import javax.swing.event.*;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.Insets;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -356,11 +372,11 @@ public class Gbo extends JFrame {
 	}
 
 	public void bPRO_ActionPerformed(ActionEvent evt) {
-		this.eingabeAdd("pro(");
+		this.fPRODUKT();
 	}
 
 	public void bINTEG_ActionPerformed(ActionEvent evt) {
-		this.eingabeAdd("int"+customDialog("Integral von; bis; f(x)"));
+		this.fINTEGRAL();
 	}
 
 	public void bFAK_ActionPerformed(ActionEvent evt) {
@@ -468,6 +484,14 @@ public class Gbo extends JFrame {
 		}
 	}
 
+	private void fINTEGRAL() {
+		eingabeAdd("int" + customDialog("Integral(von; bis; f(x))"));
+	}
+
+	private void fPRODUKT() {
+		eingabeAdd("pro" + customDialog("Produkt(von; bis; f(x))"));
+	}
+
 	private String customDialog(String title) {
 
 		JDialog d = new JDialog(this, title, true);
@@ -476,10 +500,22 @@ public class Gbo extends JFrame {
 		JTextField tfVON = new JTextField();
 		JTextField tfBIS = new JTextField();
 		JTextField tfFUNKTION = new JTextField();
-		
+
 		bOK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				d.dispose();
+				if (!checkDialog(tfVON.getText())) {
+					tfVON.setBackground(Color.RED);
+				}
+				if (!checkDialog(tfBIS.getText())) {
+					tfBIS.setBackground(Color.RED);
+				}
+				if (!checkDialog(tfFUNKTION.getText())) {
+					tfFUNKTION.setBackground(Color.RED);
+				}
+				if (checkDialog(tfVON.getText()) && checkDialog(tfBIS.getText()) && checkDialog(tfFUNKTION.getText())) {
+					d.dispose();
+				}
+
 			}
 		});
 		d.add(tfVON);
@@ -488,7 +524,34 @@ public class Gbo extends JFrame {
 		d.add(bOK);
 		d.setSize(300, 100);
 		d.setVisible(true);
-		return "("+tfVON.getText()+";"+tfBIS.getText()+";"+tfFUNKTION.getText()+")";
+		if (checkDialog(tfVON.getText()) && checkDialog(tfBIS.getText()) && checkDialog(tfFUNKTION.getText())) {
+			d.dispose();
+			return "[" + tfVON.getText() + ";" + tfBIS.getText() + ";" + tfFUNKTION.getText() + "]";
+		}else {
+			return customDialog(title);
+		}
+	}
+
+	private boolean checkDialog(String text) {
+		text.trim();
+		if(text.isEmpty()) {
+			return false;
+		}
+		char[] chars = text.toCharArray();
+		char[] goodKey = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', '*', '/', '.', '(', ')', 'x','X' };
+		
+		for (int i = 0; i < chars.length; i++) {
+			boolean ok = false;
+			for (int j = 0; j < goodKey.length; j++) {
+				if (chars[i] == goodKey[j]) {
+					ok = true;
+				}
+			}
+			if (!ok) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	private void eingabeAdd(String element) {
@@ -513,33 +576,32 @@ public class Gbo extends JFrame {
 	}
 
 	private void tastaturCheck(KeyEvent e) {
-		int keyCode = e.getKeyCode();
-		String key = e.getKeyChar() + "";
-		System.out.println("key:" + key + keyCode);
+		char key = e.getKeyChar();
+		System.out.println("key:" + key);
 		char[] goodKey = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', '*', '/', '.', '^', '(', ')' };
 		for (int i = 0; i < goodKey.length; i++) {
-			if (key.charAt(0) == goodKey[i]) {
+			if (key == goodKey[i]) {
 				eingabeAdd(goodKey[i] + "");
 			}
 		}
-		if (key.charAt(0) == 127/* DEL */) {
+		if (key == 127/* DEL */) {
 			eingabeRemove();
-		} else if (key.charAt(0) == '\n') {
+		} else if (key == '\n') {
 			rechne();
-		} else if (key.charAt(0) == 's') {
+		} else if (key == 's') {
 			eingabeAdd("sin(");
-		} else if (key.charAt(0) == 'c') {
+		} else if (key == 'c') {
 			eingabeAdd("cos(");
-		} else if (key.charAt(0) == 't') {
+		} else if (key == 't') {
 			eingabeAdd("tan(");
-		} else if (key.charAt(0) == 'p') {
-			eingabeAdd("pro(");
-		} else if (key.charAt(0) == '!') {
+		} else if (key == 'p') {
+			fPRODUKT();
+		} else if (key == '!') {
 			eingabeAdd("fak(");
-		} else if (key.charAt(0) == 'f') {
+		} else if (key == 'f') {
 			eingabeAdd("fak(");
-		} else if (key.charAt(0) == 'i') {
-			eingabeAdd("int(");
+		} else if (key == 'i') {
+			fINTEGRAL();
 		}
 	}
 
