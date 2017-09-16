@@ -40,36 +40,32 @@ public class Parser {
 	}
 
 	private String punktRechnen(String rechnung) {
-		String ergebnis = "0";
-
-		System.out.println(nextOperation(rechnung));
+		
 		if (nextOperation(rechnung).equals("mal")) {
 			int i1 = rechnung.indexOf('*');
-			System.out.println(i1);
+		
 			int i2 = nextOperationIndex(rechnung.substring(i1 + 1)) + i1 + 1;
 
-			System.out.println(i2);
-			double doubleErgebnis = Double.parseDouble(rechnung.substring(0, i1))
-					* Double.parseDouble(rechnung.substring(i1 + 1, i2));
-			System.out.println("Rechnung: " + rechnung.substring(0, i1) + "*" + rechnung.substring(i1 + 1, i2));
-			ergebnis = Double.toString(doubleErgebnis) + rechnung.substring(i2, rechnung.length());
-			System.out.println("Ergebnis: " + ergebnis);
-			punktRechnen(ergebnis);
+	
+			double doubleErgebnis = Double.parseDouble(rechnung.substring(0, i1)) * Double.parseDouble(rechnung.substring(i1 + 1, i2));
+		
+			rechnung = Double.toString(doubleErgebnis) + rechnung.substring(i2, rechnung.length());
+			System.out.println(rechnung);
+			rechnung = punktRechnen(rechnung);
+			
 		} else if (nextOperation(rechnung).equals("geteilt")) {
 			int i1 = rechnung.indexOf('/');
-			System.out.println(i1);
+	
 			int i2 = nextOperationIndex(rechnung.substring(i1 + 1)) + i1 + 1;
-			System.out.println(i2);
+	
 			double doubleErgebnis = Double.parseDouble(rechnung.substring(0, i1))
 					/ Double.parseDouble(rechnung.substring(i1 + 1, i2));
-			System.out.println("Rechnung: " + rechnung.substring(0, i1) + "/" + rechnung.substring(i1 + 1, i2));
-			ergebnis = Double.toString(doubleErgebnis) + rechnung.substring(i2, rechnung.length());
-			System.out.println("Ergebnis: " + ergebnis);    //wird beim letzten Durchlauf richtig ausgegeben
-			punktRechnen(ergebnis);
-		} else {
-			ergebnis = rechnung;
-		}
-		return ergebnis;
+		
+			rechnung = Double.toString(doubleErgebnis) + rechnung.substring(i2, rechnung.length());
+			System.out.println(rechnung);
+			rechnung = punktRechnen(rechnung);
+		} 	
+		return rechnung;
 	}
 
 	public static void main(String[] args) {
