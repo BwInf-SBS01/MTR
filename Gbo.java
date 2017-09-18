@@ -32,7 +32,7 @@ public class Gbo extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	// Anfang Attribute
-	// private Parser parser;
+	private Parser parser;
 	private JList<String> lAbreisszettel = new JList<String>();
 	private DefaultListModel<String> lAbreisszettelMODEL = new DefaultListModel<String>();
 	private JScrollPane lAbreisszettelSCROLLPANE = new JScrollPane(lAbreisszettel);
@@ -70,7 +70,7 @@ public class Gbo extends JFrame {
 	public Gbo(/* Parser parser */) {
 		// Frame-Initialisierung
 		super("Mathematischer Taschenrechner");
-		// this.parser = parser;
+		this.parser = new Parser();
 		lAbreisszettelMODEL.addElement("ABRISSZETTEL:");
 
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -478,9 +478,9 @@ public class Gbo extends JFrame {
 		eingabeAdd("");
 		String eingabe = tfEingabe.getText();
 		if (!eingabe.isEmpty()) {
-			// String ergebnis = parser.verarbeite(eingabe);
-			tfEingabe.setText(eingabe + "=" /* + ergebnis */);
-			lAbreisszettelMODEL.addElement(eingabe + " = " /* + ergebnis */);
+			String ergebnis = parser.punktRechnen(eingabe);
+			tfEingabe.setText(eingabe + "=" + ergebnis);
+			lAbreisszettelMODEL.addElement(eingabe + " = " + ergebnis);
 		}
 	}
 
@@ -563,7 +563,7 @@ public class Gbo extends JFrame {
 	}
 
 	private void eingabeAdd(String element) {
-		String text = tfEingabe.getText();
+		String text = tfEingabe.getText().replace(',', '.');
 		if (text.contains("=")) {
 			int point = text.indexOf('=');
 			text = text.substring(0, point);
@@ -574,6 +574,10 @@ public class Gbo extends JFrame {
 	private void eingabeRemove() {
 		String text = tfEingabe.getText();
 		if (!text.isEmpty()) {
+			if (text.contains("=")) {
+				int point = text.indexOf('=');
+				text = text.substring(0, point + 1);
+			}
 			if (text.endsWith("]")) {
 				text = text.substring(0, text.lastIndexOf('[') + 1);
 			}
@@ -583,13 +587,18 @@ public class Gbo extends JFrame {
 					|| text.endsWith("int") || text.endsWith("pro")) {
 				tfEingabe.setText(text.substring(0, text.length() - 3));
 			}
+			if (text.contains("=")) {
+				int point = text.indexOf('=');
+				text = text.substring(0, point);
+			}
 		}
 	}
 
 	private void tastaturCheck(KeyEvent e) {
 		char key = e.getKeyChar();
 		System.out.println("key:" + key);
-		char[] goodKey = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', '*', '/', '.', '^', '(', ')' };
+		char[] goodKey = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', '*', '/', '.', ',', '^', '(',
+				')' };
 		for (int i = 0; i < goodKey.length; i++) {
 			if (key == goodKey[i]) {
 				eingabeAdd(goodKey[i] + "");
