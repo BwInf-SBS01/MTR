@@ -11,55 +11,62 @@ public class MathMethoden {
     
   }
   
-  
   public double Addition(double a, double b){
-    return(a+b);
+    double ergebnis = a+b ;
+    return ergebnis;
   }
   
   public double Substraktion(double a, double b){
-    return(a-b);
+    double ergebnis = a-b ;
+    return ergebnis;
   }
   
   public double  Multiplikation(double a, double b){
-    return(a*b);
+    double ergebnis = a*b ;
+    return ergebnis;
   }
   
   public double Division(double a, double b){
-    return(a/b);
+    double ergebnis = a/b ;
+    return ergebnis;
   } 
   
   public double Potenz (double e, double a)
   {
-    return (Math.pow(a, e));
-  }
-  
-  public double Fakultät(int a){
-    int r = a; 
-    for (int i= 1;i<a;i++ ) {
-      r*=i;
-    } // end of for
-    return r;
-  }  
-  
-  public double Produktfunktion (int u, int o, String f){
-    int r  = 1;
-    
-    for (int stelle= u; stelle <= o; stelle++ ) {
-      r *=    Double.parseDouble(Parser.rechen(f.replaceAll("x", Double.toString(stelle))));
-    } // end of for
-    return r;
+    double ergebnis = Math.pow(a, e); 
+    return ergebnis;
   }
   
   public double Sinus (double x) {
-    return (Math.sin(x));
+    double ergebnis = Math.sin(x);
+    return ergebnis;
   }
   
   public double Cosinus (double x) {
-    return (Math.cos(x));
+    double ergebnis = Math.cos(x);
+    return ergebnis;
   }
   
   public double Tangens (double x) {
-    return (Math.tan(x));
+    double ergebnis = Math.tan(x);
+    return ergebnis;
+  }
+  
+  
+  public double Fakultät(int a){
+    int ergebnis = a; 
+    for (int i= 1;i<a;i++ ) {
+      ergebnis*=i;
+    } // end of for
+    return ergebnis;
+  }  
+  
+  public double Produktfunktion (int o, int u){
+    int ergebnis = u*o; 
+    for (int i= u+1;i<o;i++ ) {
+      ergebnis*=i;
+    } // end of for
+    return ergebnis;
   }
   
   public double Integration(double u, double o, String f){
@@ -68,16 +75,16 @@ public class MathMethoden {
     double breite = (o - u)/streifen;
     double stelle = u; 
     while ( stelle < o) {
-      ergebnis = ergebnis +(breite * (Double.parseDouble(Parser.rechen(f.replaceAll("x", Double.toString(stelle))))));
+      ergebnis = ergebnis +(breite * (Double.parseDouble(f.replaceAll("x", Double.toString(stelle)))));
       System.out.println(ergebnis);                                         
       stelle = stelle + breite;
-
+      System.out.println(stelle);   
     } // end of for
     return ergebnis;
   }
   
   public static void main(String[] args){
-    System.out.println(new MathMethoden().Produktfunktion(1,5,"2*x+1"));
+    System.out.println(new MathMethoden().Integration(0,5,"50 * x"));
   }
   
 } // end of class MathMethoden
