@@ -11,46 +11,43 @@ public class MathMethoden {
     
   }
   
+  
   public double Addition(double a, double b){
-    double ergebnis = a+b ;
-    return ergebnis;
+    return(a+b);
   }
   
   public double Substraktion(double a, double b){
-    double ergebnis = a-b ;
-    return ergebnis;
+    return(a-b);
   }
   
   public double  Multiplikation(double a, double b){
-    double ergebnis = a*b ;
-    return ergebnis;
+    return(a*b);
   }
   
   public double Division(double a, double b){
-    double ergebnis = a/b ;
-    return ergebnis;
+    return(a/b);
   } 
   
   public double Potenz (double e, double a)
   {
-    double ergebnis = Math.pow(a, e); 
-    return ergebnis;
+    return (Math.pow(a, e));
   }
   
   public double Fakultät(int a){
-    int ergebnis = a; 
+    int r = a; 
     for (int i= 1;i<a;i++ ) {
-      ergebnis*=i;
+      r*=i;
     } // end of for
-    return ergebnis;
+    return r;
   }  
   
-  public double Produktfunktion (int o, int u){
-    int ergebnis = u*o; 
-    for (int i= u+1;i<o;i++ ) {
-      ergebnis*=i;
+  public double Produktfunktion (int u, int o, String f){
+    int r  = 1;
+    
+    for (int stelle= u; stelle <= o; stelle++ ) {
+      r *=    Double.parseDouble(Parser.rechen(f.replaceAll("x", Double.toString(stelle))));
     } // end of for
-    return ergebnis;
+    return r;
   }
   
   public double Sinus (double x) {
@@ -71,16 +68,16 @@ public class MathMethoden {
     double breite = (o - u)/streifen;
     double stelle = u; 
     while ( stelle < o) {
-      ergebnis = ergebnis +(breite * (Double.parseDouble(f.replaceAll("x", Double.toString(stelle)))));
+      ergebnis = ergebnis +(breite * (Double.parseDouble(Parser.rechen(f.replaceAll("x", Double.toString(stelle))))));
       System.out.println(ergebnis);                                         
       stelle = stelle + breite;
-      System.out.println(stelle);   
+
     } // end of for
     return ergebnis;
   }
   
   public static void main(String[] args){
-    System.out.println(new MathMethoden().Integration(0,5,"50 * x"));
+    System.out.println(new MathMethoden().Produktfunktion(1,5,"2*x+1"));
   }
   
 } // end of class MathMethoden
