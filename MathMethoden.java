@@ -11,42 +11,46 @@ public class MathMethoden {
     
   }
   
-  
   public double Addition(double a, double b){
-    return(a+b);
+    double ergebnis = a+b ;
+    return ergebnis;
   }
   
   public double Substraktion(double a, double b){
-    return(a-b);
+    double ergebnis = a-b ;
+    return ergebnis;
   }
   
   public double  Multiplikation(double a, double b){
-    return(a*b);
+    double ergebnis = a*b ;
+    return ergebnis;
   }
   
   public double Division(double a, double b){
-    return(a/b);
+    double ergebnis = a/b ;
+    return ergebnis;
   } 
   
   public double Potenz (double e, double a)
   {
-    return (Math.pow(a, e));
+    double ergebnis = Math.pow(a, e); 
+    return ergebnis;
   }
   
   public double Fakultät(int a){
-    int r = a; 
+    int ergebnis = a; 
     for (int i= 1;i<a;i++ ) {
-      r*=i;
+      ergebnis*=i;
     } // end of for
-    return r;
+    return ergebnis;
   }  
   
   public double Produktfunktion (int o, int u){
-    int r = u*o; 
+    int ergebnis = u*o; 
     for (int i= u+1;i<o;i++ ) {
-      r*=i;
+      ergebnis*=i;
     } // end of for
-    return r;
+    return ergebnis;
   }
   
   public double Sinus (double x) {
