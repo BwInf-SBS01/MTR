@@ -7,8 +7,12 @@
   */
 
 public class MathMethoden {
+  public MathMethoden(){
+    
+  }
   
-  public static double Addition(double a, double b){
+  
+  public double Addition(double a, double b){
     return(a+b);
   }
   
@@ -47,27 +51,32 @@ public class MathMethoden {
   
   public double Sinus (double x) {
     return (Math.sin(x));
-    }
+  }
   
   public double Cosinus (double x) {
     return (Math.cos(x));
-    }
+  }
   
   public double Tangens (double x) {
     return (Math.tan(x));
-    }
+  }
   
-  public double Integration(double o, double u, String f(x)){
+  public double Integration(double u, double o, String f){
     double ergebnis = 0;
-    double streifen  = 100000000;
+    double streifen  = 100000;
     double breite = (o - u)/streifen;
-    double höhe = u; 
-    while ( höhe < o) {
-      ergebnis = ergebnis + (breite * "f(höhe)");                                         
-      höhe = höhe + breite;   
-      } // end of for
+    double stelle = u; 
+    while ( stelle < o) {
+      ergebnis = ergebnis +(breite * (Double.parseDouble(f.replaceAll("x", Double.toString(stelle)))));
+      System.out.println(ergebnis);                                         
+      stelle = stelle + breite;
+      System.out.println(stelle);   
+    } // end of for
     return ergebnis;
-    }
+  }
   
+  public static void main(String[] args){
+    System.out.println(new MathMethoden().Integration(0,5,"50 * x"));
+  }
   
 } // end of class MathMethoden
