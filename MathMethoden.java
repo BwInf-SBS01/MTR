@@ -75,7 +75,7 @@ public class MathMethoden {
     double breite = (o - u)/streifen;
     double stelle = u; 
     while ( stelle < o) {
-      ergebnis = ergebnis +(breite * (Double.parseDouble(parser.parsen(f.replaceAll("x", Double.toString(stelle))))));
+      ergebnis = ergebnis + (breite * parser.parsen(f.replaceAll("x", Double.toString(stelle)))));
       System.out.println(ergebnis);                                         
       stelle = stelle + breite;
       System.out.println(stelle);   
