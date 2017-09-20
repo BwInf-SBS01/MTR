@@ -103,7 +103,9 @@ public class Parser {
 	
 	private String integral(String von, String bis, String eingabe) {
 		String ergebnis = "";
+
 //		ergebnis = Mathintegral(von, bis, eingabe);      Anh Trung?
+
 		return ergebnis;
 	}
 
