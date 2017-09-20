@@ -7,8 +7,9 @@
   */
 
 public class MathMethoden {
+  private Parser p;
   public MathMethoden(){
-    
+    this.p = new Parser();
   }
   
   public double Addition(double a, double b){
@@ -72,11 +73,11 @@ public class MathMethoden {
   public double Integration(double u, double o, String f){
     f = f.replace("X","x");
     double ergebnis = 0;
-    double streifen  = 100000;
+    double streifen  = p.parsen(f.replaceAll("x", Double.toString(o));
     double breite = (o - u)/streifen;
     double stelle = u; 
     while ( stelle < o) {
-      ergebnis = ergebnis + (breite * parser.parsen(f.replaceAll("x", Double.toString(stelle)))));
+      ergebnis = ergebnis + breite * p.parsen(f.replaceAll("x", Double.toString(stelle)));
       System.out.println(ergebnis);                                         
       stelle = stelle + breite;
       System.out.println(stelle);   
