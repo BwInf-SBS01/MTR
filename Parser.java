@@ -6,7 +6,6 @@
   * @author Niklas
   */
 
-package de.taschenrechner.java;
 
 public class Parser {
 
