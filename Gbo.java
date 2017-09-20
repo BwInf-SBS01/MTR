@@ -481,9 +481,9 @@ public class Gbo extends JFrame {
     if (!eingabe.isEmpty()) {
        String ergebnis;
       try {
-    	  ergebnis = parser.parsen(eingabe)+"";
+        ergebnis = parser.parsen(eingabe)+"";
       }catch(Exception e) {
-    	  ergebnis = "ERROR";
+        ergebnis = "ERROR";
       }
       tfEingabe.setText(eingabe + "=" + ergebnis);
       lAbreisszettelMODEL.addElement(eingabe + " = " + ergebnis);
