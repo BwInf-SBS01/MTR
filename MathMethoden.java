@@ -70,6 +70,7 @@ public class MathMethoden {
   }
   
   public double Integration(double u, double o, String f){
+    f = f.replace("X","x");
     double ergebnis = 0;
     double streifen  = 100000;
     double breite = (o - u)/streifen;
@@ -84,7 +85,7 @@ public class MathMethoden {
   }
   
   public static void main(String[] args){
-    System.out.println(new MathMethoden().Integration(0,5,"50 * x"));
+    System.out.println(new MathMethoden().Integration(0,5,"50*x"));
   }
   
 } // end of class MathMethoden
