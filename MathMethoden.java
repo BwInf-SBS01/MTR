@@ -53,7 +53,7 @@ public class MathMethoden {
   }
   
   
-  public double Fakult‰t(int a){
+  public double Fakult√§t(int a){
     int ergebnis = a; 
     for (int i= 1;i<a;i++ ) {
       ergebnis*=i;
@@ -75,7 +75,7 @@ public class MathMethoden {
     double breite = (o - u)/streifen;
     double stelle = u; 
     while ( stelle < o) {
-      ergebnis = ergebnis +(breite * (Double.parseDouble(f.replaceAll("x", Double.toString(stelle)))));
+      ergebnis = ergebnis +(breite * (Double.parseDouble(parser.parsen(f.replaceAll("x", Double.toString(stelle))))));
       System.out.println(ergebnis);                                         
       stelle = stelle + breite;
       System.out.println(stelle);   
