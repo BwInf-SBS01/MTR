@@ -73,7 +73,7 @@ public class MathMethoden {
   public double Integration(double u, double o, String f){
     f = f.replace("X","x");
     double ergebnis = 0;
-    double streifen  = p.parsen(f.replaceAll("x", Double.toString(o));
+    double streifen  = 1000;
     double breite = (o - u)/streifen;
     double stelle = u; 
     while ( stelle < o) {
