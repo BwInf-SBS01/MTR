@@ -8,8 +8,8 @@
 
 public class MathMethoden {
   private Parser p;
-  public MathMethoden(){
-    this.p = new Parser();
+  public MathMethoden(Parser p){
+    this.p = p;
   }
   
   public double Addition(double a, double b){
