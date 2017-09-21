@@ -53,7 +53,7 @@ public class MathMethoden {
 		return ergebnis;
 	}
 
-	public double Fakultät(int a) {
+	public double FakultÃ¤t(int a) {
 		int ergebnis = a;
 		for (int i = 1; i < a; i++) {
 			ergebnis *= i;
@@ -62,6 +62,7 @@ public class MathMethoden {
 	}
 
 	public int Produktfunktion(double o, double u, String f) {
+		f = f.replace("X", "x");
 		int ergebnis = (int) (u * o);
 		for (int i = (int) (u + 1); i < o; i++) {
 			ergebnis *= p.parsen(f.replaceAll("x", Integer.toString(i)));
