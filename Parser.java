@@ -6,7 +6,7 @@ public class Parser {
   MathMethoden mathe;
   
   public Parser() {
-    mathe = new MathMethoden();
+    mathe = new MathMethoden(this);
   }
   
   public double parsen(String eingabe) {
