@@ -74,7 +74,7 @@ public class Gbo extends JFrame {
     lAbreisszettelMODEL.addElement("ABRISSZETTEL:");
     
     setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-    int frameWidth = 768;
+    int frameWidth = 768; 
     int frameHeight = 289;
     setSize(frameWidth, frameHeight);
     Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
@@ -191,7 +191,7 @@ public class Gbo extends JFrame {
         bHOCH_ActionPerformed(evt);
       }
     });
-   
+    
     cp.add(bHOCH);
     bNR3.setBounds(176, 128, 75, 25);
     bNR3.setText("3");
@@ -479,7 +479,7 @@ public class Gbo extends JFrame {
     eingabeAdd("");
     String eingabe = tfEingabe.getText();
     if (!eingabe.isEmpty()) {
-       String ergebnis;
+      String ergebnis;
       try {
         ergebnis = parser.parsen(eingabe)+"";
       }catch(Exception e) {
@@ -491,17 +491,17 @@ public class Gbo extends JFrame {
   }
   
   private void fINTEGRAL() {
-    String text = customDialog("Integral(von; bis; f(x))");
+    String text = customDialog("Integral(von; bis; f(x)");
+    
     if (!text.isEmpty()) {
-      eingabeAdd("int" + text);
+      String[] werte = text.split(";");
+      eingabeAdd(this.parser.integral(werte[0],werte[1],werte[2]));
     }
   }
   
   private void fPRODUKT() {
     String text = customDialog("Produkt(von; bis; f(x))");
-    if (!text.isEmpty()) {
-      eingabeAdd("pro" + text);
-    }
+    
   }
   
   private String customDialog(String title) {
@@ -534,12 +534,12 @@ public class Gbo extends JFrame {
     d.add(tfBIS);
     d.add(tfFUNKTION);
     d.add(bOK);
-    d.setSize(300, 100);
+    d.setSize(300, 75);
     d.setLocation(this.getLocation());
     d.setVisible(true);
     if (checkDialog(tfVON.getText()) && checkDialog(tfBIS.getText()) && checkDialog(tfFUNKTION.getText())) {
       d.dispose();
-      return "[" + tfVON.getText() + ";" + tfBIS.getText() + ";" + tfFUNKTION.getText() + "]";
+      return tfVON.getText() + ";" + tfBIS.getText() + ";" + tfFUNKTION.getText() ;
     } else {
       return "";
     }
