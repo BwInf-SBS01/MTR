@@ -21,7 +21,15 @@ public class Parser {
 	}
 
 	public String verarbeiten(String eingabe) {
-
+		for (int i = 0; i < eingabe.length(); i++) {
+      		if (eingabe.charAt(i) == '(') {
+       		if (!(i == 0) && Character.isDigit(eingabe.charAt(i - 1) || )) {
+          		System.out.println("digit");
+          		eingabe = eingabe.substring(0, i) + "*" + eingabe.substring(i, eingabe.length());
+         		 System.out.println(eingabe);
+        		}
+     		 }
+   	 }
 		for (int i = 0; i < eingabe.length(); i++) {
 			if (eingabe.charAt(i) == '(') {
 				System.out.println("(");
