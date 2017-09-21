@@ -112,14 +112,14 @@ public class Parser {
     		String ergebnis = "";
    		double a = rechnen(von);
     		double z = rechnen(bis);
-    		// ergebnis = Mathintegral(a, z, funktion);
+    		ergebnis = Mathe.Integration(a, z, funktion);
 		return ergebnis;
  	}
 
 	// ---------------------------------------------------------------------------
 	public static void main(String[] args) {
 		Parser p = new Parser();
-		
+		MatheMethoden mathe = new MatheMethoden(); 
 		System.out.println(p.parsen("21-8*(5+2)+110"));
 
 	}
