@@ -501,7 +501,10 @@ public class Gbo extends JFrame {
   
   private void fPRODUKT() {
     String text = customDialog("Produkt(von; bis; f(x))");
-    
+    if (!text.isEmpty()) {
+        String[] werte = text.split(";");
+        eingabeAdd(this.parser.produktfunktion(werte[0],werte[1],werte[2]));
+      }
   }
   
   private String customDialog(String title) {
