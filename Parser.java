@@ -3,10 +3,10 @@
 public class Parser {
   
   
-  MatheMethoden mathe;
+  MathMethoden mathe;
   
   public Parser() {
-    mathe = new MatheMethoden();
+    mathe = new MathMethoden();
   }
   
   public double parsen(String eingabe) {
