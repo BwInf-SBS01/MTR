@@ -109,17 +109,17 @@ public class Parser {
 	}
 	
 	private String integral(String von, String bis, String eingabe) {
-		String ergebnis = "";
-
-//		ergebnis = Mathintegral(von, bis, eingabe);      Anh Trung?
-
+    		String ergebnis = "";
+   		double a = rechnen(von);
+    		double z = rechnen(bis);
+    		// ergebnis = Mathintegral(a, z, funktion);
 		return ergebnis;
-	}
+ 	}
 
 	// ---------------------------------------------------------------------------
 	public static void main(String[] args) {
 		Parser p = new Parser();
-
+		
 		System.out.println(p.parsen("21-8*(5+2)+110"));
 
 	}
