@@ -6,7 +6,6 @@
   * @author Niklas
   */
 
-package de.taschenrechner.java;
 
 public class Parser {
 
@@ -14,10 +13,10 @@ public class Parser {
 
 	}
 
-	public String parsen(String eingabe) {
+	public double parsen(String eingabe) {
 		eingabe = "(" + eingabe + ")";
 		System.out.println("Die Aufgabe: " + eingabe);
-		String ergebnis = verarbeiten(eingabe);
+		double ergebnis = Double.parseDouble(verarbeiten(eingabe));
 		return ergebnis;
 	}
 

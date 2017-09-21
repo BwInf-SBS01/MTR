@@ -7,8 +7,9 @@
   */
 
 public class MathMethoden {
+  private Parser p;
   public MathMethoden(){
-    
+    this.p = new Parser();
   }
   
   public double Addition(double a, double b){
@@ -53,7 +54,7 @@ public class MathMethoden {
   }
   
   
-  public double Fakult‰t(int a){
+  public double Fakult√§t(int a){
     int ergebnis = a; 
     for (int i= 1;i<a;i++ ) {
       ergebnis*=i;
@@ -70,12 +71,13 @@ public class MathMethoden {
   }
   
   public double Integration(double u, double o, String f){
+    f = f.replace("X","x");
     double ergebnis = 0;
-    double streifen  = 100000;
+    double streifen  = p.parsen(f.replaceAll("x", Double.toString(o));
     double breite = (o - u)/streifen;
     double stelle = u; 
     while ( stelle < o) {
-      ergebnis = ergebnis +(breite * (Double.parseDouble(f.replaceAll("x", Double.toString(stelle)))));
+      ergebnis = ergebnis + breite * p.parsen(f.replaceAll("x", Double.toString(stelle)));
       System.out.println(ergebnis);                                         
       stelle = stelle + breite;
       System.out.println(stelle);   
@@ -84,7 +86,7 @@ public class MathMethoden {
   }
   
   public static void main(String[] args){
-    System.out.println(new MathMethoden().Integration(0,5,"50 * x"));
+    System.out.println(new MathMethoden().Integration(0,5,"50*x"));
   }
   
 } // end of class MathMethoden
