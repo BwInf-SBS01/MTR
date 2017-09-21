@@ -22,7 +22,7 @@ import javax.swing.WindowConstants;
  *
  * Beschreibung GBO von MTR
  *
- * @version 1.0 vom 12.09.2017
+ * @version 2.0 vom 21.09.2017
  * @author Paul Hollmann
  */
 
