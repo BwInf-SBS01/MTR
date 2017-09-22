@@ -43,6 +43,7 @@ public class Abreisszettel extends JFrame {
 	}
 	public void updateLoaction() {
 		setLocation(gbo.getX() + gbo.getWidth(), gbo.getY());
+		requestFocus();
 	}
 
 }

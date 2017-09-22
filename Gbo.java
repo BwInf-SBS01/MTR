@@ -345,7 +345,7 @@ public class Gbo extends JFrame {
 		});
 		cp.add(bGLEICH);
 		bPRO.setBounds(100, 200, 50, 25);
-		bPRO.setText("PROD");
+		bPRO.setText("\u220F");
 		bPRO.setToolTipText("new Produktfunktion");
 		bPRO.setMargin(new Insets(2, 2, 2, 2));
 		bPRO.setBackground(Color.DARK_GRAY);
@@ -358,7 +358,7 @@ public class Gbo extends JFrame {
 		cp.add(bPRO);
 
 		bINTEG.setBounds(25, 200, 50, 25);
-		bINTEG.setText("INTEG");
+		bINTEG.setText("\u222B");
 		bINTEG.setToolTipText("new Integralfunktion");
 		bINTEG.setMargin(new Insets(2, 2, 2, 2));
 		bINTEG.setBackground(Color.DARK_GRAY);
@@ -370,7 +370,8 @@ public class Gbo extends JFrame {
 		});
 		cp.add(bINTEG);
 		bFAK.setBounds(175, 200, 50, 25);
-		bFAK.setText("FAK");
+		bFAK.setText("!");
+		bFAK.setToolTipText("Fakultät");
 		bFAK.setMargin(new Insets(2, 2, 2, 2));
 		bFAK.setBackground(Color.DARK_GRAY);
 		bFAK.setForeground(Color.GRAY);
@@ -382,6 +383,7 @@ public class Gbo extends JFrame {
 		cp.add(bFAK);
 		bDEL.setBounds(250, 300, 50, 38);
 		bDEL.setText("DEL");
+		bDEL.setToolTipText("...entfernt das letzte Zeichen");
 		bDEL.setMargin(new Insets(2, 2, 2, 2));
 		bDEL.setBackground(Color.ORANGE);
 		bDEL.addActionListener(new ActionListener() {
@@ -392,6 +394,7 @@ public class Gbo extends JFrame {
 		cp.add(bDEL);
 		bAC.setBounds(325, 300, 50, 38);
 		bAC.setText("AC");
+		bAC.setToolTipText("entfernt die gesamte Rechung");
 		bAC.setMargin(new Insets(2, 2, 2, 2));
 		bAC.setBackground(Color.ORANGE);
 		bAC.addActionListener(new ActionListener() {
