@@ -1,5 +1,8 @@
+package code;
 import java.awt.Container;
 import java.awt.GridLayout;
+import java.awt.Point;
+
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JList;
@@ -9,9 +12,9 @@ import javax.swing.WindowConstants;
 public class Abreisszettel extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private Gbo gbo;
-	
+
 	private JList<String> lAbreisszettel = new JList<String>();
 	private DefaultListModel<String> lAbreisszettelMODEL = new DefaultListModel<String>();
 	private JScrollPane lAbreisszettelSCROLLPANE = new JScrollPane(lAbreisszettel);
@@ -41,9 +44,13 @@ public class Abreisszettel extends JFrame {
 			lAbreisszettelMODEL.addElement(string);
 		}
 	}
+
 	public void updateLoaction() {
-		setLocation(gbo.getX() + gbo.getWidth(), gbo.getY());
-		requestFocus();
+		Point p = new Point(gbo.getX() + gbo.getWidth(), gbo.getY());
+		if (!(getLocation().equals(p))) {
+			setLocation(gbo.getX() + gbo.getWidth(), gbo.getY());
+			gbo.requestFocus();
+		}
 	}
 
 }

@@ -1,8 +1,12 @@
+package code;
+
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Dialog;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Insets;
+import java.awt.TextArea;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,7 +14,11 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -34,7 +42,6 @@ public class Gbo extends JFrame {
 	private Parser parser;
 	private Abreisszettel abreisszettel;
 	private JTextField tfEingabe = new JTextField();
-
 	private JButton bNR0 = new JButton();
 	private JButton bNR1 = new JButton();
 	private JButton bNR4 = new JButton();
@@ -66,7 +73,7 @@ public class Gbo extends JFrame {
 	private JButton bOPENZETTEL = new JButton();
 	// Ende Attribute
 
-	public Gbo(/* Parser parser */) {
+	public Gbo() {
 		// Frame-Initialisierung
 		super("Mathematischer Taschenrechner");
 		this.parser = new Parser();
@@ -81,17 +88,24 @@ public class Gbo extends JFrame {
 		setResizable(false);
 		Container cp = getContentPane();
 		cp.setLayout(null);
+		try {
+			BufferedImage img = ImageIO.read(new File("src/tr.png"));
+			this.setIconImage(img);
+		} catch (IOException e) {
+			System.err.println("No tr.png");
+		}
+
+		// Anfang Komponenten
 		this.addMouseListener(new MouseListener() {
+
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				if (abreisszettel != null)
-					abreisszettel.updateLoaction();
+				// NULL
 			}
 
 			@Override
 			public void mousePressed(MouseEvent e) {
-				if (abreisszettel != null)
-					abreisszettel.updateLoaction();
+				// NULL
 			}
 
 			@Override
@@ -108,11 +122,9 @@ public class Gbo extends JFrame {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if (abreisszettel != null)
-					abreisszettel.updateLoaction();
+				// NULL
 			}
 		});
-		// Anfang Komponenten
 
 		tfEingabe.setBounds(25, 75, 350, 50);
 		tfEingabe.setEditable(false);
@@ -125,12 +137,14 @@ public class Gbo extends JFrame {
 			}
 
 			@Override
-			public void keyReleased(KeyEvent e) {
+			public void keyPressed(KeyEvent e) {
+				// NULL
 
 			}
 
 			@Override
-			public void keyPressed(KeyEvent e) {
+			public void keyReleased(KeyEvent e) {
+				// NULL
 
 			}
 		});
@@ -419,6 +433,7 @@ public class Gbo extends JFrame {
 
 		bOPENZETTEL.setBounds(250, 150, 50, 25);
 		bOPENZETTEL.setText("ZETTEL");
+		bOPENZETTEL.setToolTipText("öffnet/schließt den Abrisszettel");
 		bOPENZETTEL.setMargin(new Insets(2, 2, 2, 2));
 		bOPENZETTEL.setBackground(Color.BLUE);
 		bOPENZETTEL.setForeground(Color.GRAY);
@@ -558,6 +573,17 @@ public class Gbo extends JFrame {
 				ergebnis = parser.parsen(eingabe) + "";
 			} catch (Exception e) {
 				ergebnis = "ERROR";
+				JDialog d = new JDialog(this, "ERROR", Dialog.ModalityType.TOOLKIT_MODAL);
+				d.setBounds(this.getX(), this.getY(), this.getWidth(), 80);
+				d.add( new TextArea(e.toString()));
+				try {
+					BufferedImage img = ImageIO.read(new File("src/err.png"));
+					d.setIconImage(img);
+
+				} catch (IOException e1) {
+					System.err.println("Cant find bild1");
+				}
+				d.setVisible(true);
 			}
 			tfEingabe.setText(eingabe + "=" + ergebnis);
 			if (this.abreisszettel != null) {
@@ -726,6 +752,7 @@ public class Gbo extends JFrame {
 		}
 	}
 
+	// --------------------------------------------------------------------------------
 	public static void main(String[] args) {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -733,6 +760,6 @@ public class Gbo extends JFrame {
 			e.printStackTrace();
 		}
 		new Gbo();
-	} // end of main
-
-} // end of class Gbo
+	}
+	// --------------------------------------------------------------------------------
+}
