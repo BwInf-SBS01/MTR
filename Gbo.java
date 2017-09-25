@@ -2,6 +2,7 @@ package code;
 
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Cursor;
 import java.awt.Dialog;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -128,6 +129,9 @@ public class Gbo extends JFrame {
 
 		tfEingabe.setBounds(25, 75, 350, 50);
 		tfEingabe.setEditable(false);
+		@SuppressWarnings("deprecation")
+		int textCursor = TEXT_CURSOR;
+		tfEingabe.setCursor(new Cursor(textCursor));
 		tfEingabe.addKeyListener(new KeyListener() {
 
 			@Override
@@ -149,6 +153,7 @@ public class Gbo extends JFrame {
 			}
 		});
 		cp.add(tfEingabe);
+
 		bNR0.setBounds(25, 450, 50, 38);
 		bNR0.setText("0");
 		bNR0.setMargin(new Insets(2, 2, 2, 2));
@@ -575,7 +580,7 @@ public class Gbo extends JFrame {
 				ergebnis = "ERROR";
 				JDialog d = new JDialog(this, "ERROR", Dialog.ModalityType.TOOLKIT_MODAL);
 				d.setBounds(this.getX(), this.getY(), this.getWidth(), 80);
-				d.add( new TextArea(e.toString()));
+				d.add(new TextArea(e.toString()));
 				try {
 					BufferedImage img = ImageIO.read(new File("src/err.png"));
 					d.setIconImage(img);
@@ -595,16 +600,14 @@ public class Gbo extends JFrame {
 	private void toggleAbreisszettel() {
 		if (abreisszettel == null) {
 			abreisszettel = new Abreisszettel(this);
-
 		} else {
 			abreisszettel.dispose();
 			abreisszettel = null;
 		}
-
 	}
 
 	private void fINTEGRAL() {
-		String text = customDialog("Integral(von; bis; f(x)");
+		String text = customDialog("Integral(von; bis; f(x))");
 
 		if (!text.isEmpty()) {
 			String[] werte = text.split(";");
