@@ -390,7 +390,7 @@ public class Gbo extends JFrame {
 		cp.add(bINTEG);
 		bFAK.setBounds(175, 200, 50, 25);
 		bFAK.setText("!");
-		bFAK.setToolTipText("Fakult‰t");
+		bFAK.setToolTipText("Fakult√§t");
 		bFAK.setMargin(new Insets(2, 2, 2, 2));
 		bFAK.setBackground(Color.DARK_GRAY);
 		bFAK.setForeground(Color.GRAY);
@@ -430,7 +430,8 @@ public class Gbo extends JFrame {
 		bOFF.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				dispose();
-				abreisszettel.dispose();
+				if (abreisszettel != null)
+					abreisszettel.dispose();
 				System.out.println("OFF...");
 			}
 		});
@@ -438,7 +439,7 @@ public class Gbo extends JFrame {
 
 		bOPENZETTEL.setBounds(250, 150, 50, 25);
 		bOPENZETTEL.setText("ZETTEL");
-		bOPENZETTEL.setToolTipText("ˆffnet/schlieﬂt den Abrisszettel");
+		bOPENZETTEL.setToolTipText("√∂ffnet/schlie√üt den Abrisszettel");
 		bOPENZETTEL.setMargin(new Insets(2, 2, 2, 2));
 		bOPENZETTEL.setBackground(Color.BLUE);
 		bOPENZETTEL.setForeground(Color.GRAY);
