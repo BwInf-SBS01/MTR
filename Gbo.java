@@ -80,7 +80,7 @@ public class Gbo extends JFrame {
 		this.parser = new Parser();
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		int frameWidth = 400;
-		int frameHeight = 525;
+		int frameHeight = 550;
 		setSize(frameWidth, frameHeight);
 		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
 		int x = (d.width - getSize().width) / 2;
