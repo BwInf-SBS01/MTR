@@ -577,17 +577,7 @@ public class Gbo extends JFrame {
 				ergebnis = parser.parsen(eingabe) + "";
 			} catch (Exception e) {
 				ergebnis = "ERROR";
-				JDialog d = new JDialog(this, "ERROR", Dialog.ModalityType.TOOLKIT_MODAL);
-				d.setBounds(this.getX(), this.getY(), this.getWidth(), 80);
-				d.add(new TextArea(e.toString()));
-				try {
-					BufferedImage img = ImageIO.read(new File("src/err.png"));
-					d.setIconImage(img);
-
-				} catch (IOException e1) {
-					System.err.println("Cant find bild1");
-				}
-				d.setVisible(true);
+				errorDialog(Exception e);
 			}
 			tfEingabe.setText(eingabe + "=" + ergebnis);
 			if (this.abreisszettel != null) {
@@ -595,6 +585,23 @@ public class Gbo extends JFrame {
 			}
 		}
 	}
+	
+	
+	
+	  private void errorDialog(Exception e){
+     JDialog d = new JDialog(this, "ERROR", Dialog.ModalityType.TOOLKIT_MODAL);
+        d.setBounds(this.getX(), this.getY(), this.getWidth(), 80);
+        d.add(new TextArea(e.toString()));
+        try {
+          BufferedImage img = ImageIO.read(new File("err.png"));
+          d.setIconImage(img);
+
+        } catch (IOException e1) {
+          System.err.println("Cant find bild1");
+        }
+        d.setVisible(true);
+        
+    }
 
 	private void toggleAbreisszettel() {
 		if (abreisszettel == null) {
