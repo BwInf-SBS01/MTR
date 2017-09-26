@@ -1,6 +1,6 @@
 public class Parser {
 
-	MathMethoden mathe;
+	public static MathMethoden mathe;
 
 	public Parser() {
 		mathe = new MathMethoden(this);
@@ -21,19 +21,16 @@ public class Parser {
 					eingabe = eingabe.substring(0, i) + "*" + eingabe.substring(i, eingabe.length());
 					System.out.println(eingabe);
 				}
-			}
-		}
-		for (int i = 0; i < eingabe.length(); i++) {
-			if (eingabe.charAt(i) == '(') {
 				System.out.println("(");
-				if (i >= 3 && eingabe.substring(i - 3, i - 1).equals("sin")) {
-
-				}
 				eingabe = eingabe.substring(0, i) + verarbeiten(eingabe.substring(i + 1));
-				System.out.println("Gek�rzt: " + eingabe);
+				System.out.println("Gekürzt: " + eingabe);
 			} else if (eingabe.charAt(i) == ')') {
 				System.out.println(')');
 				double doubleErgebnis = Double.parseDouble(strichRechnen(eingabe.substring(0, i)));
+				if (i < eingabe.length() - 1 && Character.isDigit(eingabe.charAt(i + 1))) {
+					System.out.println("Digit");
+					eingabe = eingabe.substring(0, i + 1) + "*" + eingabe.substring(i + 1, eingabe.length());
+				}
 				eingabe = Double.toString(doubleErgebnis) + eingabe.substring(i + 1);
 				break;
 			}
@@ -48,9 +45,10 @@ public class Parser {
 			System.out.println("+");
 			int i1 = rechnung.indexOf('+');
 			int i2 = nextOperationIndexStrich(rechnung.substring(i1 + 1)) + i1 + 1;
+			rechnung = spezRechnen(rechnung.substring(0, i1));
 
-			double doubleErgebnis = Double.parseDouble(punktRechnen(rechnung.substring(0, i1)))
-					+ Double.parseDouble(punktRechnen(rechnung.substring(i1 + 1, i2)));
+			double doubleErgebnis = mathe.Addition(Double.parseDouble(punktRechnen(rechnung.substring(0, i1))),
+					 Double.parseDouble(punktRechnen(rechnung.substring(i1 + 1, i2))));
 			rechnung = Double.toString(doubleErgebnis) + rechnung.substring(i2);
 			System.out.println("Additionsergebnis: " + rechnung);
 			rechnung = strichRechnen(rechnung);
@@ -59,60 +57,16 @@ public class Parser {
 			int i1 = rechnung.substring(1).indexOf('-') + 1;
 			int i2 = nextOperationIndexStrich(rechnung.substring(i1 + 1)) + i1 + 1;
 
-			double doubleErgebnis = Double.parseDouble(punktRechnen(rechnung.substring(0, i1)))
-					- Double.parseDouble(punktRechnen(rechnung.substring(i1 + 1, i2)));
+			double doubleErgebnis = mathe.Subtraktion(Double.parseDouble(punktRechnen(rechnung.substring(0, i1))),
+					Double.parseDouble(punktRechnen(rechnung.substring(i1 + 1, i2))));
 			rechnung = Double.toString(doubleErgebnis) + rechnung.substring(i2);
 			System.out.println("Subtraktionsergebnis: " + rechnung);
 			rechnung = strichRechnen(rechnung);
 		} else {
+			rechnung = spezRechnen(rechnung);
 			rechnung = punktRechnen(rechnung);
 		}
 		return rechnung;
-	}
-
-	private static String punktRechnen(String rechnung) {
-		System.out.println("PunktRechnen: " + rechnung);
-		if (nextOperationPunkt(rechnung).equals("mal")) {
-			int i1 = rechnung.indexOf('*');
-			int i2 = nextOperationIndexPunkt(rechnung.substring(i1 + 1)) + i1 + 1;
-
-			double doubleErgebnis = Double.parseDouble(rechnung.substring(0, i1))
-					* Double.parseDouble(rechnung.substring(i1 + 1, i2));
-
-			rechnung = Double.toString(doubleErgebnis) + rechnung.substring(i2, rechnung.length());
-			rechnung = punktRechnen(rechnung);
-		} else if (nextOperationPunkt(rechnung).equals("geteilt")) {
-			int i1 = rechnung.indexOf('/');
-			int i2 = nextOperationIndexPunkt(rechnung.substring(i1 + 1)) + i1 + 1;
-
-			double doubleErgebnis = Double.parseDouble(rechnung.substring(0, i1))
-					/ Double.parseDouble(rechnung.substring(i1 + 1, i2));
-
-			rechnung = Double.toString(doubleErgebnis) + rechnung.substring(i2, rechnung.length());
-			rechnung = punktRechnen(rechnung);
-		} else if (nextOperationPunkt(rechnung).equals("sin")) {
-			int i1 = rechnung.indexOf('n') + 1;
-			int i2 = nextOperationIndexPunkt(rechnung.substring(i1)) + i1 + 1;
-
-			System.out.println("sin von" + i1 + "bis" + i2);
-
-		}
-		return rechnung;
-	}
-
-	public String integral(String von, String bis, String eingabe) {
-		String ergebnis = "";
-		double a = parsen(von);
-		double z = parsen(bis);
-		ergebnis = mathe.Integration(a, z, eingabe) + "";
-		return ergebnis;
-	}
-	public String produktfunktion(String von, String bis, String eingabe) {
-		String ergebnis = "";
-		double a = parsen(von);
-		double z = parsen(bis);
-		ergebnis = mathe.Produktfunktion(a, z, eingabe) + "";
-		return ergebnis;
 	}
 
 	private static String nextOperationStrich(String input) {
@@ -143,15 +97,76 @@ public class Parser {
 		return index;
 	}
 
+	private static String spezRechnen(String rechnung) {
+		System.out.println("spezRechnen: " + rechnung);
+		for (int i = 0; i < rechnung.length(); i++) {
+			if (i >= 2) {
+				if (rechnung.substring(i - 2, i + 1).equals("sin")) {
+					int i2 = nextOperationIndexPunkt(rechnung);
+					double doubleErgebnis = mathe.Sinus(Double.parseDouble(rechnung.substring(i + 1, i2)));
+					rechnung = rechnung.substring(0, i - 2) + Double.toString(doubleErgebnis) + rechnung.substring(i2);
+				} else if (rechnung.substring(i - 2, i + 1).equals("cos")) {
+					int i2 = nextOperationIndexPunkt(rechnung);
+					double doubleErgebnis = mathe.Cosinus(Double.parseDouble(rechnung.substring(i + 1, i2)));
+					rechnung = rechnung.substring(0, i - 2) + Double.toString(doubleErgebnis) + rechnung.substring(i2);
+				} else if (rechnung.substring(i - 2, i + 1).equals("tan")) {
+					int i2 = nextOperationIndexPunkt(rechnung);
+					double doubleErgebnis = mathe.Tangens(Double.parseDouble(rechnung.substring(i + 1, i2)));
+					rechnung = rechnung.substring(0, i - 2) + Double.toString(doubleErgebnis) + rechnung.substring(i2);
+				}
+			}
+			if (rechnung.charAt(i) == '^') {
+				int i0 = lastOperationIndexPunkt(rechnung.substring(0, i)) + 1;
+				int i1 = rechnung.indexOf('^');
+				int i2 = nextOperationIndexPunkt(rechnung.substring(i1 + 1)) + i1 + 1;
+				System.out.println("Potenz: " + rechnung.substring(i0, i1) + "^^" + rechnung.substring(i1 + 1, i2));
+				double doubleErgebnis = mathe.Potenz(Double.parseDouble(rechnung.substring(i0, i1)),
+						Double.parseDouble(rechnung.substring(i1 + 1, i2)));
+				rechnung = rechnung.substring(0, i0) + Double.toString(doubleErgebnis) + rechnung.substring(i2, rechnung.length());
+				System.out.println("Ergebnis der Potenz: " + rechnung);
+			}
+			if(rechnung.charAt(i) == '!') {
+				int i0 = lastOperationIndexPunkt(rechnung.substring(0, i)) + 1;
+				int i1 = rechnung.indexOf('!');
+				double doubleErgebnis = mathe.Fakultät(Integer.parseInt(rechnung.substring(i0, i1)));
+				rechnung = rechnung.substring(0, i0) + Double.toString(doubleErgebnis) + rechnung.substring(i1 + 1);
+			}
+		}
+
+		return rechnung;
+	}
+
+	private static String punktRechnen(String rechnung) {
+		System.out.println("PunktRechnen: " + rechnung);
+		if (nextOperationPunkt(rechnung).equals("mult")) {
+			int i1 = rechnung.indexOf('*');
+			int i2 = nextOperationIndexPunkt(rechnung.substring(i1 + 1)) + i1 + 1;
+			double doubleErgebnis = mathe.Multiplikation(Double.parseDouble(rechnung.substring(0, i1)),
+					Double.parseDouble(rechnung.substring(i1 + 1, i2)));
+
+			rechnung = Double.toString(doubleErgebnis) + rechnung.substring(i2, rechnung.length());
+			rechnung = punktRechnen(rechnung);
+		} else if (nextOperationPunkt(rechnung).equals("div")) {
+			int i1 = rechnung.indexOf('/');
+			int i2 = nextOperationIndexPunkt(rechnung.substring(i1 + 1)) + i1 + 1;
+
+			double doubleErgebnis = mathe.Division(Double.parseDouble(rechnung.substring(0, i1)),
+					Double.parseDouble(rechnung.substring(i1 + 1, i2)));
+
+			rechnung = Double.toString(doubleErgebnis) + rechnung.substring(i2, rechnung.length());
+			rechnung = punktRechnen(rechnung);
+		}
+		return rechnung;
+	}
+
 	private static String nextOperationPunkt(String input) {
 		String operation = "";
 		for (int i = 0; i < input.length(); i++) {
-
 			if (input.charAt(i) == '*') {
-				operation = "mal";
+				operation = "mult";
 				break;
 			} else if (input.charAt(i) == '/') {
-				operation = "geteilt";
+				operation = "div";
 				break;
 			}
 		}
@@ -160,13 +175,51 @@ public class Parser {
 
 	private static int nextOperationIndexPunkt(String input) {
 		int index = input.length();
-		if (nextOperationPunkt(input).equals("mal")) {
+		if (nextOperationPunkt(input).equals("mult")) {
 			index = input.indexOf('*');
-		} else if (nextOperationPunkt(input).equals("geteilt")) {
+		} else if (nextOperationPunkt(input).equals("div")) {
 			index = input.indexOf('/');
 		}
 		return index;
 	}
-
 	
+	private static int lastOperationIndexPunkt(String input) {
+		int index = -1;
+		for(int i = input.length()-1; i >= 0; i--) {
+			if(input.charAt(i) == '*') {
+				index = input.lastIndexOf('*');
+				break;
+			} else if(input.charAt(i) == '/') {
+				index = input.lastIndexOf('/');
+				break;
+			}
+		}
+		return index;
+	}
+
+	public String integral(String von, String bis, String eingabe) {
+		String ergebnis = "";
+		double a = parsen(von);
+		double z = parsen(bis);
+		ergebnis = mathe.Integration(a, z, eingabe) + "";
+		return ergebnis;
+	}
+
+	public String produktfunktion(String von, String bis, String eingabe) {
+		String ergebnis = "";
+		double a = parsen(von);
+		double z = parsen(bis);
+		ergebnis = mathe.Produktfunktion(a, z, eingabe) + "";
+		return ergebnis;
+	}
+
+	// ---------------------------------------------------------------------------
+	public static void main(String[] args) {
+		Parser p = new Parser();
+
+		System.out.println(p.parsen("33!"));
+
+	}
+	// ---------------------------------------------------------------------------
+
 }
