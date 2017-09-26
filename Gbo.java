@@ -476,7 +476,7 @@ public class Gbo extends JFrame {
 	}
 
 	public void bFAK_ActionPerformed(ActionEvent evt) {
-		this.eingabeAdd("!(");
+		this.eingabeAdd("!");
 	}
 
 	public void bTAN_ActionPerformed(ActionEvent evt) {
@@ -748,9 +748,9 @@ public class Gbo extends JFrame {
 		} else if (key == 'p') {
 			fPRODUKT();
 		} else if (key == '!') {
-			eingabeAdd("!(");
+			eingabeAdd("!");
 		} else if (key == 'f') {
-			eingabeAdd("!(");
+			eingabeAdd("!");
 		} else if (key == 'i') {
 			fINTEGRAL();
 		}
