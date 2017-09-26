@@ -1,12 +1,9 @@
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Cursor;
-
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.Image;
 import java.awt.Insets;
-
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,8 +12,9 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
+
 import java.io.IOException;
+
 import java.net.URL;
 
 import javax.imageio.ImageIO;
@@ -95,7 +93,7 @@ public class Gbo extends JFrame {
 			URL url = getClass().getResource("tr.png");
 			BufferedImage img = ImageIO.read(url);
 			this.setIconImage(img);
-		} catch (IOException e) {
+		} catch (Exception e) {
 			System.err.println("No tr.png");
 		}
 
@@ -393,7 +391,7 @@ public class Gbo extends JFrame {
 		cp.add(bINTEG);
 		bFAK.setBounds(175, 200, 50, 25);
 		bFAK.setText("!");
-		bFAK.setToolTipText("Fakult√§t");
+		bFAK.setToolTipText("Fakult‰t");
 		bFAK.setMargin(new Insets(2, 2, 2, 2));
 		bFAK.setBackground(Color.DARK_GRAY);
 		bFAK.setForeground(Color.GRAY);
@@ -442,7 +440,7 @@ public class Gbo extends JFrame {
 
 		bOPENZETTEL.setBounds(250, 150, 50, 25);
 		bOPENZETTEL.setText("ZETTEL");
-		bOPENZETTEL.setToolTipText("√∂ffnet/schlie√üt den Abrisszettel");
+		bOPENZETTEL.setToolTipText("ˆffnet/schlieﬂt den Abrisszettel");
 		bOPENZETTEL.setMargin(new Insets(2, 2, 2, 2));
 		bOPENZETTEL.setBackground(Color.BLUE);
 		bOPENZETTEL.setForeground(Color.GRAY);
