@@ -18,7 +18,7 @@ public class MathMethoden {
 		return ergebnis;
 	}
 
-	public double Substraktion(double a, double b) {
+	public double Subtraktion(double a, double b) {
 		double ergebnis = a - b;
 		return ergebnis;
 	}
