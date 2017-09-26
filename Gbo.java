@@ -322,6 +322,7 @@ public class Gbo extends JFrame {
 		cp.add(bGETEILT);
 		bSIN.setBounds(175, 250, 50, 25);
 		bSIN.setText("SIN");
+		bSIN.setToolTipText("sinus(x)");
 		bSIN.setMargin(new Insets(2, 2, 2, 2));
 		bSIN.setBackground(Color.DARK_GRAY);
 		bSIN.setForeground(Color.GRAY);
@@ -333,6 +334,7 @@ public class Gbo extends JFrame {
 		cp.add(bSIN);
 		bCOS.setBounds(250, 250, 50, 25);
 		bCOS.setText("COS");
+		bCOS.setToolTipText("cosinus(x)");
 		bCOS.setMargin(new Insets(2, 2, 2, 2));
 		bCOS.setBackground(Color.DARK_GRAY);
 		bCOS.setForeground(Color.GRAY);
@@ -344,6 +346,7 @@ public class Gbo extends JFrame {
 		cp.add(bCOS);
 		bTAN.setBounds(325, 250, 50, 25);
 		bTAN.setText("TAN");
+		bTAN.setToolTipText("tangens(x)");
 		bTAN.setMargin(new Insets(2, 2, 2, 2));
 		bTAN.setBackground(Color.DARK_GRAY);
 		bTAN.setForeground(Color.GRAY);
@@ -353,7 +356,7 @@ public class Gbo extends JFrame {
 			}
 		});
 		cp.add(bTAN);
-		bGLEICH.setBounds(325, 450, 50, 38);
+		bGLEICH.setBounds(250, 450, 125, 38);
 		bGLEICH.setText("=");
 		bGLEICH.setMargin(new Insets(2, 2, 2, 2));
 		bGLEICH.addActionListener(new ActionListener() {
