@@ -12,9 +12,6 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
-
-import java.io.IOException;
-
 import java.net.URL;
 
 import javax.imageio.ImageIO;
@@ -91,6 +88,7 @@ public class Gbo extends JFrame {
 		cp.setLayout(null);
 		try {
 			URL url = getClass().getResource("tr.png");
+			System.out.println(url);
 			BufferedImage img = ImageIO.read(url);
 			this.setIconImage(img);
 		} catch (Exception e) {
@@ -592,11 +590,12 @@ public class Gbo extends JFrame {
 	private void errorDialog(Exception e) {
 		try {
 			URL url = getClass().getResource("err.png");
+			System.out.println(url);
 			ImageIcon icon = new ImageIcon(url);
-			JOptionPane.showMessageDialog(this, e.toString(), "Ups...", JOptionPane.ERROR_MESSAGE, icon);
+			JOptionPane.showMessageDialog(this, e.toString(), "Ups... -Unexpected Eingabe", JOptionPane.ERROR_MESSAGE, icon);
 		} catch (Exception e1) {
 			System.err.println("Cant find err.png");
-			JOptionPane.showMessageDialog(this,"Missing err.png" +e.toString(), "Ups...", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this,"Missing err.png and " +  e.toString(), "Ups... -Unexpected Eingabe and -missing Files", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
