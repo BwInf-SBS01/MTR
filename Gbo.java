@@ -632,6 +632,7 @@ public class Gbo extends JFrame {
 
 		JDialog d = new JDialog(this, title, true);
 		d.setLayout(new GridLayout());
+		
 		JButton bOK = new JButton("OK");
 		JTextField tfVON = new JTextField();
 		JTextField tfBIS = new JTextField();
@@ -662,6 +663,7 @@ public class Gbo extends JFrame {
 		d.add(bOK);
 		d.setSize(300, 75);
 		d.setLocation(this.getLocation());
+		d.setMaximumSize(new Dimension(1000, 400));
 		d.setVisible(true);
 		if (checkDialog(tfVON.getText()) && checkDialog(tfBIS.getText()) && checkDialog(tfFUNKTION.getText())) {
 			d.dispose();
