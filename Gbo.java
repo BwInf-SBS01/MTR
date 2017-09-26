@@ -1,11 +1,12 @@
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Cursor;
-import java.awt.Dialog;
+
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.Insets;
-import java.awt.TextArea;
+
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,11 +17,14 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.WindowConstants;
@@ -88,7 +92,8 @@ public class Gbo extends JFrame {
 		Container cp = getContentPane();
 		cp.setLayout(null);
 		try {
-			BufferedImage img = ImageIO.read(new File("src/tr.png"));
+			URL url = getClass().getResource("tr.png");
+			BufferedImage img = ImageIO.read(url);
 			this.setIconImage(img);
 		} catch (IOException e) {
 			System.err.println("No tr.png");
@@ -400,7 +405,7 @@ public class Gbo extends JFrame {
 		cp.add(bFAK);
 		bDEL.setBounds(250, 300, 50, 38);
 		bDEL.setText("DEL");
-		bDEL.setToolTipText("...entfernt das letzte Zeichen");
+		bDEL.setToolTipText("entfernt das letzte Zeichen");
 		bDEL.setMargin(new Insets(2, 2, 2, 2));
 		bDEL.setBackground(Color.ORANGE);
 		bDEL.addActionListener(new ActionListener() {
@@ -577,7 +582,7 @@ public class Gbo extends JFrame {
 				ergebnis = parser.parsen(eingabe) + "";
 			} catch (Exception e) {
 				ergebnis = "ERROR";
-				errorDialog(Exception e);
+				errorDialog(e);
 			}
 			tfEingabe.setText(eingabe + "=" + ergebnis);
 			if (this.abreisszettel != null) {
@@ -585,18 +590,17 @@ public class Gbo extends JFrame {
 			}
 		}
 	}
-	
-	
-	
-private void errorDialog(Exception e){
-    //try {
-     // BufferedImage img = ImageIO.read(new File("err.png"));
-      //JOptionPane.showMessageDialog(this,e.toString(),"err",JOptionPane.INFORMATION_MESSAGE,img); 
-   // } catch (IOException e1) {
-      System.err.println("Cant find bild1");
-      JOptionPane.showMessageDialog(this,e.toString(),"ERRRRRRRRRORRRRRR",JOptionPane.ERROR_MESSAGE);
-   // }
-  }
+
+	private void errorDialog(Exception e) {
+		try {
+			URL url = getClass().getResource("err.png");
+			ImageIcon icon = new ImageIcon(url);
+			JOptionPane.showMessageDialog(this, e.toString(), "Ups...", JOptionPane.ERROR_MESSAGE, icon);
+		} catch (Exception e1) {
+			System.err.println("Cant find err.png");
+			JOptionPane.showMessageDialog(this,"Missing err.png" +e.toString(), "Ups...", JOptionPane.ERROR_MESSAGE);
+		}
+	}
 
 	private void toggleAbreisszettel() {
 		if (abreisszettel == null) {
@@ -673,7 +677,8 @@ private void errorDialog(Exception e){
 			return false;
 		}
 		char[] chars = text.toCharArray();
-		char[] goodKey = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', '*', '/', '.', '(', ')', 'x','^' };
+		char[] goodKey = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', '*', '/', '.', '(', ')', 'x',
+				'^' };
 
 		for (int i = 0; i < chars.length; i++) {
 			boolean ok = false;
