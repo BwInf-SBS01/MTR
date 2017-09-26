@@ -588,20 +588,15 @@ public class Gbo extends JFrame {
 	
 	
 	
-	  private void errorDialog(Exception e){
-     JDialog d = new JDialog(this, "ERROR", Dialog.ModalityType.TOOLKIT_MODAL);
-        d.setBounds(this.getX(), this.getY(), this.getWidth(), 80);
-        d.add(new TextArea(e.toString()));
-        try {
-          BufferedImage img = ImageIO.read(new File("err.png"));
-          d.setIconImage(img);
-
-        } catch (IOException e1) {
-          System.err.println("Cant find bild1");
-        }
-        d.setVisible(true);
-        
-    }
+private void errorDialog(Exception e){
+    //try {
+     // BufferedImage img = ImageIO.read(new File("err.png"));
+      //JOptionPane.showMessageDialog(this,e.toString(),"err",JOptionPane.INFORMATION_MESSAGE,img); 
+   // } catch (IOException e1) {
+      System.err.println("Cant find bild1");
+      JOptionPane.showMessageDialog(this,e.toString(),"ERRRRRRRRRORRRRRR",JOptionPane.ERROR_MESSAGE);
+   // }
+  }
 
 	private void toggleAbreisszettel() {
 		if (abreisszettel == null) {
