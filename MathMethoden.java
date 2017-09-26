@@ -33,7 +33,7 @@ public class MathMethoden {
 		return ergebnis;
 	}
 
-	public double Potenz(double e, double a) {
+	public double Potenz(double a, double e) {
 		double ergebnis = Math.pow(a, e);
 		return ergebnis;
 	}
