@@ -217,7 +217,7 @@ public class Parser {
   public static void main(String[] args) {
     Parser p = new Parser();
 
-    System.out.println(p.parsen("33!"));
+    System.out.println(p.parsen("5.3E3*100"));
 
   }
   // ---------------------------------------------------------------------------

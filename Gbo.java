@@ -93,6 +93,7 @@ public class Gbo extends JFrame {
       this.setIconImage(img);
     } catch (Exception e) {
       System.err.println("No tr.png");
+      errorDialog(e);
     }
 
     // Anfang Komponenten
@@ -616,7 +617,11 @@ public class Gbo extends JFrame {
 
     if (!text.isEmpty()) {
       String[] werte = text.split(";");
-      eingabeAdd(this.parser.integral(werte[0], werte[1], werte[2]));
+      double ergebnis =(Double.parseDouble(parser.integral(werte[0], werte[1], werte[2])));
+      ergebnis *= 10000;
+      ergebnis = Math.round(ergebnis);
+      ergebnis /= 10000;
+      eingabeAdd(ergebnis+"");
     }
   }
 

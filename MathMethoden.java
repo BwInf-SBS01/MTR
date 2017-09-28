@@ -7,10 +7,10 @@
  */
 
 public class MathMethoden {
-  private Parser p;
+  private Parser parser;
   
   public MathMethoden(Parser p) {
-    this.p = p;
+    this.parser = p;
   }
   
   public double Addition(double a, double b) {
@@ -64,8 +64,8 @@ public class MathMethoden {
   public double Produktfunktion(double u, double o, String f) {
     f = f.replace("X", "x");
     double ergebnis = 1;
-    for (int i = (int) (u); i <= (int) (o); i++) {
-      ergebnis *= p.parsen(f.replaceAll("x", Integer.toString(i)));
+    for (int i = (int) u; i <= o; i++) {
+      ergebnis *= parser.parsen(f.replaceAll("x", Integer.toString(i)));
     } 
     return ergebnis;
   }
@@ -77,7 +77,7 @@ public class MathMethoden {
     double breite = (o - u) / streifen;
     double stelle = u;
     while (stelle < o) {
-      ergebnis = ergebnis + breite * p.parsen(f.replaceAll("x", Double.toString(stelle)));
+      ergebnis = ergebnis + breite * parser.parsen(f.replaceAll("x", Double.toString(stelle)));
       System.out.println(ergebnis);
       stelle = stelle + breite;
       System.out.println(stelle);
