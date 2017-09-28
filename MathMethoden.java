@@ -64,7 +64,7 @@ public class MathMethoden {
   public double Produktfunktion(double u, double o, String f) {
     f = f.replace("X", "x");
     double ergebnis = (1);
-    for (int i = (int) (u + 1); i <= o; i++) {
+    for (int i = (int) (u); i <= o; i++) {
       ergebnis *= p.parsen(f.replaceAll("x", Integer.toString(i)));
     } 
     return ergebnis;
