@@ -63,8 +63,8 @@ public class MathMethoden {
   
   public double Produktfunktion(double u, double o, String f) {
     f = f.replace("X", "x");
-    double ergebnis = (1);
-    for (int i = (int) (u); i <= o; i++) {
+    double ergebnis = 1;
+    for (int i = (int) (u); i <= (int) (o); i++) {
       ergebnis *= p.parsen(f.replaceAll("x", Integer.toString(i)));
     } 
     return ergebnis;
