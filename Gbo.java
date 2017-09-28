@@ -457,7 +457,7 @@ public class Gbo extends JFrame {
 		// Ende Komponenten
 		
 		setVisible(true);
-		if(JOptionPane.showConfirmDialog(this, "Möchten sie den Abrisszettel öffnen?", "Abrisszettel", JOptionPane.YES_OPTION)==0) {
+		if(JOptionPane.showConfirmDialog(this, "Möchten sie den Abrisszettel mitöffnen?", "Abrisszettel", JOptionPane.YES_OPTION)==0) {
 			abreisszettel = new Abreisszettel(this);
 		}
 		
