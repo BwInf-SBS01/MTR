@@ -88,7 +88,7 @@ public class Gbo extends JFrame {
     cp.setLayout(null);
     try {
       URL url = getClass().getResource("tr.png");
-      System.out.println(url);
+      System.out.println("suche:...\n"+url);
       BufferedImage img = ImageIO.read(url);
       this.setIconImage(img);
     } catch (Exception e) {
@@ -593,7 +593,7 @@ public class Gbo extends JFrame {
   private void errorDialog(Exception e) {
     try {
       URL url = getClass().getResource("err.png");
-      System.out.println(url);
+      System.out.println("suche:...\n"+url);
       ImageIcon icon = new ImageIcon(url);
       JOptionPane.showMessageDialog(this, e.toString(), "Ups... -Unexpected Eingabe", JOptionPane.ERROR_MESSAGE, icon);
     } catch (Exception e1) {
