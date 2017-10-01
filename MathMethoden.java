@@ -53,7 +53,7 @@ public class MathMethoden {
     return ergebnis;
   }
   
-  public double Fakultät(int a) {
+  public double Fakultaet(int a) {
     int ergebnis = a;
     for (int i = 1; i < a; i++) {
       ergebnis *= i;
@@ -73,7 +73,7 @@ public class MathMethoden {
   public double Integration(double u, double o, String f) {
     f = f.replace("X", "x");
     double ergebnis = 0;
-    double streifen = 1000;
+    double streifen = 100000;
     double breite = (o - u) / streifen;
     double stelle = u;
     while (stelle < o) {
