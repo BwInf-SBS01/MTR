@@ -63,6 +63,9 @@ public class MathMethoden {
   
   public double Produktfunktion(double u, double o, String f) {
     f = f.replace("X", "x");
+    if(u>o) {
+    	throw new TRE("Argumentfehler: Obergrenze keiner als Untergrenze!");
+    }
     double ergebnis = 1;
     for (int i = (int) u; i <= o; i++) {
       ergebnis *= parser.parsen(f.replaceAll("x", Integer.toString(i)));
@@ -72,6 +75,9 @@ public class MathMethoden {
   
   public double Integration(double u, double o, String f) {
     f = f.replace("X", "x");
+    if(u>o) {
+    	throw new TRE("Argumentfehler: Obergrenze keiner als Untergrenze!");
+    }
     double ergebnis = 0;
     double streifen = 100000;
     double breite = (o - u) / streifen;

@@ -39,6 +39,7 @@ public class Gbo extends JFrame {
 	// Anfang Attribute
 	private Parser parser;
 	private Abreisszettel abreisszettel;
+
 	private JTextField tfEingabe = new JTextField();
 	private JButton bNR0 = new JButton();
 	private JButton bNR1 = new JButton();
@@ -455,12 +456,13 @@ public class Gbo extends JFrame {
 		cp.add(bOPENZETTEL);
 
 		// Ende Komponenten
-		
+
 		setVisible(true);
-		if(JOptionPane.showConfirmDialog(this, "Möchten sie den Abrisszettel mitöffnen?", "Abrisszettel", JOptionPane.YES_OPTION)==0) {
+		if (JOptionPane.showConfirmDialog(this, "Möchten sie den Abrisszettel mitöffnen?", "Abrisszettel",
+				JOptionPane.YES_OPTION) == 0) {
 			abreisszettel = new Abreisszettel(this);
 		}
-		
+
 	}
 
 	// Anfang Methoden
@@ -620,29 +622,39 @@ public class Gbo extends JFrame {
 
 	private void fINTEGRAL() {
 		String text = customDialog("Integral(von; bis; f(x))");
-
 		if (!text.isEmpty()) {
-			String[] werte = text.split(";");
-			double ergebnis = (Double.parseDouble(parser.integral(werte[0], werte[1], werte[2])));
-			ergebnis *= 10000;
-			ergebnis = Math.round(ergebnis);
-			ergebnis /= 10000;
-			eingabeAdd(ergebnis + "");
-			if (abreisszettel != null) {
-				abreisszettel.addElementToList("Integral["+text+"] = " + ergebnis);
+			try {
+				String[] werte = text.split(";");
+				double ergebnis = (Double.parseDouble(parser.integral(werte[0], werte[1], werte[2])));
+				ergebnis *= 10000;
+				ergebnis = Math.round(ergebnis);
+				ergebnis /= 10000;
+				eingabeAdd(ergebnis + "");
+				if (abreisszettel != null) {
+					abreisszettel.addElementToList("Integral[" + text + "] = " + ergebnis);
+				}
+			} catch (Exception e) {
+				errorDialog(e);
 			}
+
 		}
 	}
 
 	private void fPRODUKT() {
-		String text = customDialog("Produkt(von; bis; f(x))");
-		if (!text.isEmpty()) {
-			String[] werte = text.split(";");
-			String ergebnis = this.parser.produktfunktion(werte[0], werte[1], werte[2]);
-			eingabeAdd(ergebnis);
-			if (abreisszettel != null) {
-				abreisszettel.addElementToList("Produkt["+text+"] = " + ergebnis);
+		try {
+			String text = customDialog("Produkt(von; bis; f(x))");
+			if (!text.isEmpty()) {
+				String[] werte = text.split(";");
+				String ergebnis = this.parser.produktfunktion(werte[0], werte[1], werte[2]);
+				eingabeAdd(ergebnis);
+				if (abreisszettel != null) {
+					abreisszettel.addElementToList("Produkt[" + (int) (Double.parseDouble(werte[0])) + ";"
+							+ (int) (Double.parseDouble(werte[1])) + ";" + (int) (Double.parseDouble(werte[2])) + "] = "
+							+ ergebnis);
+				}
 			}
+		} catch (Exception e) {
+			errorDialog(e);
 		}
 	}
 
