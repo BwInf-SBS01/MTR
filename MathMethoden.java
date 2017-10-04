@@ -64,7 +64,7 @@ public class MathMethoden {
   public double Produktfunktion(double u, double o, String f) {
     f = f.replace("X", "x");
     if(u>o) {
-    	throw new TRE("Argumentfehler: Obergrenze keiner als Untergrenze!");
+      throw new NumberFormatException("Argumentfehler: Obergrenze kleiner als Untergrenze!");
     }
     double ergebnis = 1;
     for (int i = (int) u; i <= o; i++) {
@@ -76,17 +76,17 @@ public class MathMethoden {
   public double Integration(double u, double o, String f) {
     f = f.replace("X", "x");
     if(u>o) {
-    	throw new TRE("Argumentfehler: Obergrenze keiner als Untergrenze!");
+      throw new NumberFormatException("Argumentfehler: Obergrenze kleiner als Untergrenze!");
     }
     double ergebnis = 0;
-    double streifen = 100000;
+    double streifen = 10000;
     double breite = (o - u) / streifen;
     double stelle = u;
     while (stelle < o) {
       ergebnis = ergebnis + breite * parser.parsen(f.replaceAll("x", Double.toString(stelle)));
-      System.out.println(ergebnis);
+      //System.out.println(ergebnis);
       stelle = stelle + breite;
-      System.out.println(stelle);
+      //System.out.println(stelle);
     } // end of for
     return ergebnis;
   }

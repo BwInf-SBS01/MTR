@@ -1,0 +1,586 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FRAME GUID="2FB25471-B62C-4EE6-BD43-F819C095ACF8" FORMAT="0000" APP_VERSION="2.2.0.8" CHECKSUM="F1A4FEA875A48511">
+  <PROJECT FORMAT="1.00" NAME="Parser" AUTHOR="Niklas" CREATED="2017.10.03 17:29:10" MODIFIED="2017.10.03 19:21:54">
+    <DIAGRAMS>
+      <DIAGRAM FORMAT="1.00" ID="0" NAME="Parser" CREATED="2017.10.03 17:29:14" MODIFIED="2017.10.03 19:21:54">
+        <LAYOUT FORMAT="1.00" COLUMNS="2" ROWS="14">
+          <ENTRIES>
+            <ENTRY COLUMN="0" ROW="0" ANCHOR="True">
+              <FIGURE SUBTYPE="PapTitle" FORMAT="1.00" ID="0">
+                <TEXT><![CDATA[Parser]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="1">
+              <FIGURE SUBTYPE="PapStart" FORMAT="1.00" ID="1">
+                <TEXT><![CDATA[Start]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="2">
+              <FIGURE SUBTYPE="PapInput" FORMAT="1.00" ID="6">
+                <TEXT><![CDATA[Eingabe von einer Rechnung als String]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="3">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="4">
+                <TEXT><![CDATA[füge Klammern vorne und hinten dazu]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="4">
+              <FIGURE SUBTYPE="PapLoopStart" FORMAT="1.00" ID="19" ASSOCIATE="20">
+                <TEXT><![CDATA[gehe den String komplett durch]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="7">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="25">
+                <TEXT><![CDATA[ist an dem Index eine '('?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="8">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="43">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="9">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="29">
+                <TEXT><![CDATA[ist an dem Index eine ')'?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="10">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="53">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="11">
+              <FIGURE SUBTYPE="PapLoopEnd" FORMAT="1.00" ID="20" ASSOCIATE="19">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="12">
+              <FIGURE SUBTYPE="PapOutput" FORMAT="1.00" ID="8">
+                <TEXT><![CDATA[Ausgabe von dem Ergebnis als Double]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="13">
+              <FIGURE SUBTYPE="PapEnd" FORMAT="1.00" ID="2">
+                <TEXT><![CDATA[Ende]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="4">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="34">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="5">
+              <FIGURE SUBTYPE="PapComment" FORMAT="1.00" ID="39">
+                <TEXT><![CDATA[Rekursiv aufgerufen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="6">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="48">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="7">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="33">
+                <TEXT><![CDATA[Rekursion mit dem Bereich ab der Klammer]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="8">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="41">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="9">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="59">
+                <TEXT><![CDATA[strichRechnen(verkürzter String)]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="10">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="51">
+                <TEXT><![CDATA[Ergebnis der Strichrechnung einsetzen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+          </ENTRIES>
+        </LAYOUT>
+        <CONNECTIONS>
+          <CONNECTION FORMAT="1.00" ID="9" FROM="8" TO="2" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="21" FROM="19" TO="25" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="57" FROM="4" TO="19" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="58" FROM="20" TO="8" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="44" FROM="43" TO="29" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="28" FROM="25" TO="33" TEXT="ja" />
+          <CONNECTION FORMAT="1.00" ID="54" FROM="53" TO="20" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="40" FROM="33" TO="41" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="47" FROM="34" TO="19" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="45" FROM="41" TO="43" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="26" FROM="25" TO="43" TEXT="nein" />
+          <CONNECTION FORMAT="1.00" ID="49" FROM="48" TO="34" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="61" FROM="29" TO="59" TEXT="ja" />
+          <CONNECTION FORMAT="1.00" ID="30" FROM="29" TO="53" TEXT="nein" />
+          <CONNECTION FORMAT="1.00" ID="55" FROM="51" TO="53" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="60" FROM="59" TO="51" TEXT="" />
+        </CONNECTIONS>
+      </DIAGRAM>
+      <DIAGRAM FORMAT="1.00" ID="1" NAME="strichRechnen" CREATED="2017.10.03 18:46:18" MODIFIED="2017.10.03 19:20:34">
+        <LAYOUT FORMAT="1.00" COLUMNS="3" ROWS="22">
+          <ENTRIES>
+            <ENTRY COLUMN="0" ROW="10">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="31">
+                <TEXT><![CDATA[spezRechnen(Subtrahend)]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="11">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="32">
+                <TEXT><![CDATA[spezRechnen(Diminuend)]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="12">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="33">
+                <TEXT><![CDATA[punktRechnen(Subtrahend)]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="13">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="34">
+                <TEXT><![CDATA[punktRechnen(Diminuend)]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="14">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="35">
+                <TEXT><![CDATA[Subtraktion durchführen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="15">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="36">
+                <TEXT><![CDATA[Im String ersetzen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="16">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="49">
+                <TEXT><![CDATA[Rekursion/ Neuaufruf von strichRechnen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="0" ANCHOR="True">
+              <FIGURE SUBTYPE="PapTitle" FORMAT="1.00" ID="0">
+                <TEXT><![CDATA[strichRechnen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="1">
+              <FIGURE SUBTYPE="PapStart" FORMAT="1.00" ID="1">
+                <TEXT><![CDATA[Start]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="2">
+              <FIGURE SUBTYPE="PapInput" FORMAT="1.00" ID="27">
+                <TEXT><![CDATA[Eingabe von einer Rechnung als String]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="3">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="4">
+                <TEXT><![CDATA[Ist der nexte Operator ein '+'?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="9">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="56">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="10">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="8">
+                <TEXT><![CDATA[Ist der nexte Operator ein '-'?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="16">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="51">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="17">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="45">
+                <TEXT><![CDATA[ansonsten?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="18">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="59">
+                <TEXT><![CDATA[spezRechnen(Rechnung)]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="19">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="61">
+                <TEXT><![CDATA[punktRechnen(Rechnung)]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="20">
+              <FIGURE SUBTYPE="PapOutput" FORMAT="1.00" ID="63">
+                <TEXT><![CDATA[Ausgabe von dem Ergebnis als String]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="21">
+              <FIGURE SUBTYPE="PapEnd" FORMAT="1.00" ID="2">
+                <TEXT><![CDATA[Ende]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="3">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="10">
+                <TEXT><![CDATA[spezRechnen(erster Summand)]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="4">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="11">
+                <TEXT><![CDATA[spezRechnen(zweiter Summand)]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="5">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="13">
+                <TEXT><![CDATA[punktRechnen(erster Summand)]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="6">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="15">
+                <TEXT><![CDATA[punktRechnen(zweiter Summand)]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="7">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="17">
+                <TEXT><![CDATA[beide Summanden addieren]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="8">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="22">
+                <TEXT><![CDATA[Im String ersetzen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="9">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="54">
+                <TEXT><![CDATA[Rekursion/ Neuaufruf von strichRechnen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="17">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="47">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="20">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="69">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+          </ENTRIES>
+        </LAYOUT>
+        <CONNECTIONS>
+          <CONNECTION FORMAT="1.00" ID="3" FROM="1" TO="27" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="57" FROM="56" TO="8" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="7" FROM="4" TO="10" TEXT="ja" />
+          <CONNECTION FORMAT="1.00" ID="52" FROM="51" TO="45" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="12" FROM="10" TO="11" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="14" FROM="11" TO="13" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="16" FROM="13" TO="15" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="18" FROM="15" TO="17" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="28" FROM="27" TO="4" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="26" FROM="17" TO="22" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="5" FROM="4" TO="56" TEXT="nein" />
+          <CONNECTION FORMAT="1.00" ID="55" FROM="22" TO="54" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="30" FROM="8" TO="31" TEXT="ja" />
+          <CONNECTION FORMAT="1.00" ID="37" FROM="31" TO="32" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="38" FROM="32" TO="33" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="39" FROM="33" TO="34" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="40" FROM="34" TO="35" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="41" FROM="35" TO="36" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="9" FROM="8" TO="51" TEXT="nein" />
+          <CONNECTION FORMAT="1.00" ID="50" FROM="36" TO="49" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="46" FROM="45" TO="59" TEXT="ja" />
+          <CONNECTION FORMAT="1.00" ID="48" FROM="45" TO="47" TEXT="nein" />
+          <CONNECTION FORMAT="1.00" ID="53" FROM="49" TO="51" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="58" FROM="54" TO="56" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="60" FROM="59" TO="61" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="62" FROM="61" TO="63" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="64" FROM="63" TO="2" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="66" FROM="47" TO="69" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="71" FROM="69" TO="63" TEXT="" />
+        </CONNECTIONS>
+      </DIAGRAM>
+      <DIAGRAM FORMAT="1.00" ID="2" NAME="spezRechnen" CREATED="2017.10.03 18:58:23" MODIFIED="2017.10.03 19:12:21">
+        <LAYOUT FORMAT="1.00" COLUMNS="2" ROWS="17">
+          <ENTRIES>
+            <ENTRY COLUMN="0" ROW="0" ANCHOR="True">
+              <FIGURE SUBTYPE="PapTitle" FORMAT="1.00" ID="0">
+                <TEXT><![CDATA[spezRechnen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="1">
+              <FIGURE SUBTYPE="PapStart" FORMAT="1.00" ID="1">
+                <TEXT><![CDATA[Start]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="2">
+              <FIGURE SUBTYPE="PapInput" FORMAT="1.00" ID="4">
+                <TEXT><![CDATA[Eingabe von einer Rechnung als String]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="3">
+              <FIGURE SUBTYPE="PapLoopStart" FORMAT="1.00" ID="8" ASSOCIATE="10">
+                <TEXT><![CDATA[die komplette Eingabe durchgehen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="4">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="12">
+                <TEXT><![CDATA[steht am Index "sin"?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="5">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="18">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="6">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="21">
+                <TEXT><![CDATA[steht am Index "cos"?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="7">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="27">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="8">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="30">
+                <TEXT><![CDATA[steht am Index "tan"?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="9">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="36">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="10">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="39">
+                <TEXT><![CDATA[steht am Index '^'?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="11">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="47">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="12">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="50">
+                <TEXT><![CDATA[steht am Index '!'?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="13">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="56">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="14">
+              <FIGURE SUBTYPE="PapLoopEnd" FORMAT="1.00" ID="10" ASSOCIATE="8">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="15">
+              <FIGURE SUBTYPE="PapOutput" FORMAT="1.00" ID="6">
+                <TEXT><![CDATA[Ausgabe von dem Ergebnis als String]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="16">
+              <FIGURE SUBTYPE="PapEnd" FORMAT="1.00" ID="2">
+                <TEXT><![CDATA[Ende]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="4">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="14">
+                <TEXT><![CDATA[Sinusrechnen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="5">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="16">
+                <TEXT><![CDATA[Ergebnis einsetzen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="6">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="23">
+                <TEXT><![CDATA[Cosinusrechnen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="7">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="24">
+                <TEXT><![CDATA[Ergebnis einsetzen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="8">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="32">
+                <TEXT><![CDATA[Tangensrechnen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="9">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="33">
+                <TEXT><![CDATA[Ergebnis einsetzen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="10">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="43">
+                <TEXT><![CDATA[Potenzrechnen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="11">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="44">
+                <TEXT><![CDATA[Ergebnis einsetzen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="12">
+              <FIGURE SUBTYPE="PapModule" FORMAT="1.00" ID="52">
+                <TEXT><![CDATA[Fakultätrechnen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="13">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="53">
+                <TEXT><![CDATA[Ergebnis einsetzen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+          </ENTRIES>
+        </LAYOUT>
+        <CONNECTIONS>
+          <CONNECTION FORMAT="1.00" ID="3" FROM="1" TO="4" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="5" FROM="4" TO="8" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="7" FROM="6" TO="2" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="11" FROM="10" TO="6" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="9" FROM="8" TO="12" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="19" FROM="18" TO="21" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="15" FROM="12" TO="14" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="17" FROM="14" TO="16" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="13" FROM="12" TO="18" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="20" FROM="16" TO="18" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="28" FROM="27" TO="30" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="25" FROM="23" TO="24" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="26" FROM="21" TO="23" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="22" FROM="21" TO="27" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="29" FROM="24" TO="27" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="37" FROM="36" TO="39" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="34" FROM="32" TO="33" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="35" FROM="30" TO="32" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="31" FROM="30" TO="36" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="38" FROM="33" TO="36" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="48" FROM="47" TO="50" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="45" FROM="43" TO="44" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="46" FROM="39" TO="43" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="40" FROM="39" TO="47" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="49" FROM="44" TO="47" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="57" FROM="56" TO="10" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="54" FROM="52" TO="53" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="55" FROM="50" TO="52" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="51" FROM="50" TO="56" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="58" FROM="53" TO="56" TEXT="" />
+        </CONNECTIONS>
+      </DIAGRAM>
+      <DIAGRAM FORMAT="1.00" ID="3" NAME="punktRechnen" CREATED="2017.10.03 18:58:43" MODIFIED="2017.10.03 19:20:34">
+        <LAYOUT FORMAT="1.00" COLUMNS="3" ROWS="13">
+          <ENTRIES>
+            <ENTRY COLUMN="0" ROW="7">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="24">
+                <TEXT><![CDATA[Indizes der beiden Zahlen suchen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="8">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="25">
+                <TEXT><![CDATA[Zahlen dividieren]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="9">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="26">
+                <TEXT><![CDATA[Ergebnis in der Eingabe ersetzen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="10">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="32">
+                <TEXT><![CDATA[Rekursion/ Neuaufruf von punktRechnen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="0" ANCHOR="True">
+              <FIGURE SUBTYPE="PapTitle" FORMAT="1.00" ID="0">
+                <TEXT><![CDATA[punktRechnen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="1">
+              <FIGURE SUBTYPE="PapStart" FORMAT="1.00" ID="1">
+                <TEXT><![CDATA[Start]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="2">
+              <FIGURE SUBTYPE="PapInput" FORMAT="1.00" ID="4">
+                <TEXT><![CDATA[Eingabe von einer Rechnung als String]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="3">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="8">
+                <TEXT><![CDATA[Ist der nexte Operator '*'?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="6">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="39">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="7">
+              <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="13">
+                <TEXT><![CDATA[Ist der nexte Operator '/'?]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="10">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="34">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="11">
+              <FIGURE SUBTYPE="PapOutput" FORMAT="1.00" ID="6">
+                <TEXT><![CDATA[Ausgabe von dem Ergebnis als String]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="12">
+              <FIGURE SUBTYPE="PapEnd" FORMAT="1.00" ID="2">
+                <TEXT><![CDATA[Ende]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="3">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="12">
+                <TEXT><![CDATA[Indizes der beiden Zahlen suchen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="4">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="17">
+                <TEXT><![CDATA[Zahlen multiplizieren]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="5">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="19">
+                <TEXT><![CDATA[Ergebnis in der Eingabe ersetzen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="2" ROW="6">
+              <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="37">
+                <TEXT><![CDATA[Rekursion/ Neuaufruf von punktRechnen]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+          </ENTRIES>
+        </LAYOUT>
+        <CONNECTIONS>
+          <CONNECTION FORMAT="1.00" ID="3" FROM="1" TO="4" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="5" FROM="4" TO="8" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="7" FROM="6" TO="2" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="40" FROM="39" TO="13" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="11" FROM="8" TO="12" TEXT="ja" />
+          <CONNECTION FORMAT="1.00" ID="35" FROM="34" TO="6" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="16" FROM="13" TO="24" TEXT="ja" />
+          <CONNECTION FORMAT="1.00" ID="18" FROM="12" TO="17" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="20" FROM="17" TO="19" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="9" FROM="8" TO="39" TEXT="nein" />
+          <CONNECTION FORMAT="1.00" ID="38" FROM="19" TO="37" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="27" FROM="24" TO="25" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="28" FROM="25" TO="26" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="14" FROM="13" TO="34" TEXT="nein" />
+          <CONNECTION FORMAT="1.00" ID="33" FROM="26" TO="32" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="36" FROM="32" TO="34" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="41" FROM="37" TO="39" TEXT="" />
+        </CONNECTIONS>
+      </DIAGRAM>
+    </DIAGRAMS>
+  </PROJECT>
+</FRAME>

@@ -141,7 +141,7 @@ public class Parser {
         int i0 = lastOperationIndexPunkt(rechnung.substring(0, i)) + 1;
         int i1 = rechnung.indexOf('^');
         int i2 = nextOperationIndexPunkt(rechnung.substring(i1 + 1)) + i1 + 1;
-        System.out.println("Potenz: " + rechnung.substring(i0, i1) + "^^" + rechnung.substring(i1 + 1, i2));
+        //System.out.println("Potenz: " + rechnung.substring(i0, i1) + "^^" + rechnung.substring(i1 + 1, i2));
         double doubleErgebnis = mathe.Potenz(Double.parseDouble(rechnung.substring(i0, i1)),
             Double.parseDouble(rechnung.substring(i1 + 1, i2)));
         rechnung = rechnung.substring(0, i0) + Double.toString(doubleErgebnis) + rechnung.substring(i2, rechnung.length());
@@ -239,13 +239,5 @@ public class Parser {
     return ergebnis;
   }
 
-  // ---------------------------------------------------------------------------
-  public static void main(String[] args) {
-    Parser p = new Parser();
-
-    System.out.println(p.parsen("10+20+30*2-10^2"));
-
-  }
-  // ---------------------------------------------------------------------------
-
+  
 }
