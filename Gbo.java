@@ -710,7 +710,7 @@ public class Gbo extends JFrame {
     }
     char[] chars = text.toCharArray();
     char[] goodKey = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', '*', '/', '.', '(', ')', 'x',
-        '^' };
+        '^','s','i','n','c', 'o','t','a','n','!' };
 
     for (int i = 0; i < chars.length; i++) {
       boolean ok = false;

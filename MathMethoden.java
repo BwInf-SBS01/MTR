@@ -79,7 +79,7 @@ public class MathMethoden {
       throw new NumberFormatException("Argumentfehler: Obergrenze kleiner als Untergrenze!");
     }
     double ergebnis = 0;
-    double streifen = 10000;
+    double streifen = 100000;
     double breite = (o - u) / streifen;
     double stelle = u;
     while (stelle < o) {
